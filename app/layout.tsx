@@ -18,8 +18,13 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "PMR WIRA SMKN 1 Purwokerto",
-  description: "Palang Merah Remaja WIRA SMKN 1 Purwokerto - Ekstrakurikuler kemanusiaan untuk siswa",
-  generator: "v0.app",
+  description:
+    "Palang Merah Remaja WIRA SMKN 1 Purwokerto - Ekstrakurikuler kemanusiaan untuk siswa",
+  icons: {
+    icon: "/logo1.png",         // ini logo PMR kamu
+    shortcut: "/logo1.png",     // untuk browser lama
+    apple: "/logo1.png",        // untuk iOS
+  },
 }
 
 export default function RootLayout({
@@ -28,7 +33,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="id" className={`${sourceSans.variable} ${playfairDisplay.variable} antialiased`}>
+    <html
+      lang="id"
+      className={`${sourceSans.variable} ${playfairDisplay.variable} antialiased`}
+    >
       <body>{children}</body>
     </html>
   )
