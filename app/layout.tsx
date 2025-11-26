@@ -1,19 +1,22 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Source_Sans_3, Playfair_Display } from "next/font/google"
+// Ganti font yang diimpor di sini
+import { Inter, Roboto_Slab } from "next/font/google" 
 import "./globals.css"
 
-const sourceSans = Source_Sans_3({
+// Ganti konfigurasi font
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-source-sans",
+  variable: "--font-source-sans", // Pertahankan nama variabel CSS jika diinginkan
 })
 
-const playfairDisplay = Playfair_Display({
+// Ganti konfigurasi font
+const robotoSlab = Roboto_Slab({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
-  variable: "--font-playfair",
+  variable: "--font-playfair", // Pertahankan nama variabel CSS jika diinginkan
 })
 
 export const metadata: Metadata = {
@@ -21,9 +24,9 @@ export const metadata: Metadata = {
   description:
     "Palang Merah Remaja WIRA SMKN 1 Purwokerto - Ekstrakurikuler kemanusiaan untuk siswa",
   icons: {
-    icon: "/logo1.png",         // ini logo PMR kamu
-    shortcut: "/logo1.png",     // untuk browser lama
-    apple: "/logo1.png",        // untuk iOS
+    icon: "/logo1.png",
+    shortcut: "/logo1.png",
+    apple: "/logo1.png",
   },
 }
 
@@ -35,7 +38,8 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${sourceSans.variable} ${playfairDisplay.variable} antialiased`}
+      // Ganti variabel font yang digunakan di class
+      className={`${inter.variable} ${robotoSlab.variable} antialiased`} 
     >
       <body>{children}</body>
     </html>
