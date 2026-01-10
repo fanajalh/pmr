@@ -1,103 +1,72 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
+import { ArrowUpRight } from "lucide-react"
 
 export function BidangSection() {
   const bidangItems = [
-    {
-      name: "Pertolongan Pertama",
-      image: "/images/pertolongan-pertama.png",
-      description: "Keterampilan vital penanganan kegawatdaruratan dan cedera.",
-      href: "/bidang/pertolongan-pertama",
-    },
-    {
-      name: "Pendidikan Remaja Sebaya",
-      image: "/images/prs.png",
-      description: "Membentuk pendidik sebaya untuk isu kesehatan dan sosial.",
-      href: "/bidang/pendidikan-remaja",
-    },
-    {
-      name: "Perawatan Keluarga",
-      image: "/images/perawatan-keluarga.jpg",
-      description: "Pengetahuan dasar merawat anggota keluarga yang sakit di rumah.",
-      href: "/bidang/perawatan-keluarga",
-    },
-    {
-      name: "Game Kepalangmerahan",
-      image: "/images/palangmerah.jpg",
-      description: "Belajar prinsip-prinsip Palang Merah melalui simulasi dan permainan.",
-      href: "/bidang/kepalangmerahan",
-    },
-    {
-      name: "Donor Darah Sukarela",
-      image: "/images/donor.jpg",
-      description: "Sosialisasi pentingnya donor darah untuk kemanusiaan.",
-      href: "/bidang/donor-darah",
-    },
-    {
-      name: "Ayo Siaga Bencana",
-      image: "/images/pertolongan-pertama.png", // Menggunakan gambar yang sama sebagai placeholder
-      description: "Kesiapsiagaan menghadapi berbagai jenis bencana alam dan non-alam.",
-      href: "/bidang/asb",
-    },
+    { name: "Pertolongan Pertama", image: "/images/pertolongan-pertama.png", description: "Keterampilan vital penanganan kegawatdaruratan dan cedera.", href: "/bidang/pertolongan-pertama" },
+    { name: "Pendidikan Remaja Sebaya", image: "/images/prs.png", description: "Membentuk pendidik sebaya untuk isu kesehatan dan sosial.", href: "/bidang/pendidikan-remaja" },
+    { name: "Perawatan Keluarga", image: "/images/perawatan-keluarga.jpg", description: "Pengetahuan dasar merawat anggota keluarga yang sakit di rumah.", href: "/bidang/perawatan-keluarga" },
+    { name: "Game Kepalangmerahan", image: "/images/palangmerah.jpg", description: "Belajar prinsip-prinsip Palang Merah melalui simulasi dan permainan.", href: "/bidang/kepalangmerahan" },
+    { name: "Donor Darah Sukarela", image: "/images/donor.jpg", description: "Sosialisasi pentingnya donor darah untuk kemanusiaan.", href: "/bidang/donor-darah" },
+    { name: "Ayo Siaga Bencana", image: "/images/pertolongan-pertama.png", description: "Kesiapsiagaan menghadapi berbagai jenis bencana alam dan non-alam.", href: "/bidang/asb" },
   ]
 
   return (
-    <section className="py-20 md:py-28 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section className="py-32 bg-white dark:bg-[#020617] font-poppins overflow-hidden">
+      <div className="container mx-auto px-6">
         
-        {/* Judul Utama */}
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-5xl md:text-6xl font-extrabold font-playfair mb-3 text-gray-900 dark:text-white leading-none">
-            Pilar Kegiatan PMR WIRA
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-source-sans">
-            Enam bidang utama yang menjadi fokus pengembangan keterampilan dan jiwa kemanusiaan anggota PMR WIRA.
+        {/* Header Section: Editorial Style */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div className="max-w-2xl space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="h-[1px] w-10 bg-primary" />
+              <span className="text-[10px] font-bold tracking-[0.4em] text-primary uppercase">Core Pillars</span>
+            </div>
+            <h2 className="text-5xl md:text-7xl font-extralight tracking-tighter text-gray-900 dark:text-white leading-none uppercase italic">
+              Pilar <span className="font-black not-italic text-primary">Kegiatan</span>
+            </h2>
+          </div>
+          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-sm font-light leading-relaxed italic border-r-2 border-primary/20 pr-8 text-right">
+            Enam fokus utama pengembangan karakter dan keterampilan teknis relawan Wira.
           </p>
         </div>
 
-        {/* Grid Kartu Gambar Baru */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Grid Kartu: Modern Minimalist */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {bidangItems.map((item, index) => (
-            <Link key={item.name} href={item.href} className="block h-full">
-              {/* Card Style: Overflow hidden untuk efek zoom gambar, rounded besar, lift effect */}
-              <Card className="group relative overflow-hidden bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 ease-in-out transform hover:-translate-y-2 h-full">
+            <Link key={item.name} href={item.href} className="group">
+              <Card className="relative h-[450px] overflow-hidden rounded-[2.5rem] border-none shadow-none bg-gray-100 dark:bg-white/[0.02]">
+                {/* Image Layer */}
+                <Image
+                  src={item.image || "/placeholder.svg"}
+                  alt={item.name}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 grayscale-[0.5] group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
+                />
                 
-                {/* 1. Area Gambar (Tinggi Tetap) */}
-                <div className="relative w-full h-48 overflow-hidden">
-                  <Image
-                    src={item.image || "/placeholder.svg"}
-                    alt={`Gambar ${item.name}`}
-                    // Menggunakan object-cover dan efek zoom pada hover
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  
-                  {/* 2. Overlay Gradien (Untuk Keterbacaan Judul) */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                {/* Dark Overlay Layer */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
 
-                  {/* 3. Judul di atas Gambar (Header) */}
-                  <div className="absolute bottom-0 left-0 p-4 w-full">
-                    <h3 className="text-xl font-extrabold text-white drop-shadow-md">
+                {/* Content Layer */}
+                <CardContent className="absolute inset-0 p-8 flex flex-col justify-end text-white">
+                  <div className="space-y-4 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                    
+                    {/* Index Number */}
+                    <span className="text-5xl font-black opacity-10 italic absolute top-0 right-8">0{index + 1}</span>
+                    
+                    <h3 className="text-2xl font-bold tracking-tight uppercase leading-tight group-hover:text-primary transition-colors">
                       {item.name}
                     </h3>
-                  </div>
-                </div>
-                
-                {/* 4. Area Konten (Deskripsi) */}
-                <CardContent className="p-6 flex flex-col justify-between">
-                  {/* Deskripsi: Teks Pendukung */}
-                  <p className="text-base text-gray-600 dark:text-gray-400 font-source-sans">
-                    {item.description}
-                  </p>
-                  
-                  {/* Link / CTA Kecil */}
-                  <div className="mt-4 text-sm font-semibold text-primary group-hover:text-primary/80 transition-colors flex items-center">
-                    Lihat Detail 
-                    <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
+                    
+                    <p className="text-sm text-gray-300 font-light leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                      {item.description}
+                    </p>
+
+                    <div className="flex items-center gap-2 pt-2 text-[10px] font-black tracking-[0.2em] uppercase text-white/50 group-hover:text-white transition-colors">
+                      Learn More <ArrowUpRight className="w-4 h-4" />
+                    </div>
                   </div>
                 </CardContent>
               </Card>

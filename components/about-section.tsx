@@ -1,102 +1,93 @@
-/**
- * Icon untuk PMR (Tangan Memeluk Hati - Solid)
- */
+import React from "react";
+
 const HeartHandIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg {...props} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path fillRule="evenodd" d="M11 5.372c-.172-.195-.4-.368-.65-.526C9.91 4.5 9 4 8 4a5 5 0 00-5 5c0 1.25.337 2.47 1.05 3.555L12 21l7.95-8.445C20.663 11.47 21 10.25 21 9a5 5 0 00-5-5c-1 0-1.91.5-2.35 1.022a3.003 3.003 0 01-1.65.526 3.003 3.003 0 01-1.65-.526zM12 21l-7.95-8.445C3.337 11.47 3 10.25 3 9a5 5 0 0110-3c.45.522.84 1.127 1.233 1.761a2 2 0 001.534.877c.54 0 1.057-.184 1.534-.877C18.16 7.127 18.55 6.522 19 6c0 0 0 0 0 0a5 5 0 01-5 5c0 1.25-.337 2.47-1.05 3.555L12 21z" clipRule="evenodd" />
+  <svg {...props} fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
   </svg>
 );
 
-/**
- * Icon untuk SAF-C (Perisai Pelindung - Solid)
- */
 const ShieldUserIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg {...props} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path fillRule="evenodd" d="M12 1.5l8.75 4.375V18l-8.75 4.5-8.75-4.5V5.875L12 1.5zm-2.25 9.75a3 3 0 116 0 3 3 0 01-6 0zM12 15a6.5 6.5 0 00-6.5 6.5h13A6.5 6.5 0 0012 15z" clipRule="evenodd" />
+  <svg {...props} fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751A11.959 11.959 0 0112 2.714z" />
   </svg>
 );
-
-
-// ---------- Komponen Utama ----------
 
 export function AboutSection() {
   return (
-    // Background lebih gelap, kontras lebih tinggi
-    <section className="relative py-28 bg-gray-50 dark:bg-gray-950 overflow-hidden">
+    <section className="relative py-32 bg-white dark:bg-[#020617] overflow-hidden font-poppins">
       
-      {/* Efek Latar Belakang Geometris (Blob Blur) - Warna diperkuat */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-red-400/15 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
-        <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-blue-400/15 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-400/15 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
+      {/* Background Decorative - Ramping & Halus */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-[10%] -right-[5%] w-[30%] h-[40%] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[40%] -left-[5%] w-[20%] h-[30%] bg-blue-500/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto space-y-16">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto">
           
-          {/* Judul Utama: Text Shadow untuk penekanan */}
-          <div className="text-center animate-slide-up relative z-20">
-            <h2 className="text-6xl md:text-7xl font-extrabold font-playfair mb-5 text-gray-900 dark:text-white drop-shadow-lg leading-none">
-              Integritas & Kemanusiaan
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-source-sans tracking-wider mt-4">
-              PMR WIRA: Membentuk Generasi Relawan Muda yang Tangguh dan Penuh Kepedulian.
+          {/* Header: Tipografi Ramping & Bold */}
+          <div className="grid lg:grid-cols-2 gap-12 items-end mb-20">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="h-[1px] w-10 bg-primary" />
+                <span className="text-[10px] font-bold tracking-[0.4em] text-primary uppercase">Who We Are</span>
+              </div>
+              <h2 className="text-5xl md:text-7xl font-extralight tracking-tighter text-gray-900 dark:text-white leading-none uppercase italic">
+                Integritas <br />
+                <span className="font-black not-italic text-primary">& Kemanusiaan</span>
+              </h2>
+            </div>
+            <p className="text-lg text-gray-500 dark:text-gray-400 font-light leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8 italic">
+              "Membentuk generasi relawan muda yang tidak hanya terampil dalam teknis, tetapi juga memiliki empati tinggi terhadap sesama."
             </p>
           </div>
 
-          {/* Grid Konten (Kartu Glassmorphism yang Jelas) */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 relative z-20">
+          {/* Content Cards: Asymmetric Grid */}
+          <div className="grid lg:grid-cols-12 gap-8">
             
-            {/* Kartu 1: Tentang PMR */}
-            <div className="animate-fade-in p-10 border border-primary/30 bg-white/70 dark:bg-gray-800/70 rounded-3xl shadow-2xl backdrop-blur-lg hover:shadow-primary/50 transition-all duration-300 ease-in-out cursor-pointer group transform hover:-translate-y-1">
-              <div className="flex flex-col items-start space-y-5">
-                
-                {/* ICON PMR: Heart Hand */}
-                <div className="p-4 bg-primary text-white rounded-xl shadow-xl transform group-hover:scale-105 transition-transform duration-300">
-                  <HeartHandIcon className="w-8 h-8" />
+            {/* Kartu 1: PMR (Kiri - Lebih Lebar) */}
+            <div className="lg:col-span-7 group">
+              <div className="relative h-full p-12 bg-gray-50 dark:bg-white/[0.02] border border-gray-100 dark:border-white/5 rounded-[3rem] transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 overflow-hidden">
+                <div className="flex flex-col md:flex-row gap-8 relative z-10">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20 group-hover:rotate-6 transition-transform">
+                      <HeartHandIcon className="w-8 h-8" />
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white uppercase">Palang Merah Remaja</h3>
+                    <p className="text-lg text-gray-600 dark:text-gray-400 font-light leading-relaxed">
+                      PMR adalah wadah bagi pelajar untuk mengasah <span className="text-primary font-medium">Keterampilan Pertolongan Pertama</span> dan edukasi kesehatan. Kami menyiapkan anggota menjadi relawan masa depan yang kompeten dan berjiwa sosial tinggi.
+                    </p>
+                  </div>
                 </div>
-                
-                {/* SUB-JUDUL: Lebih Berani, Keterbacaan Lebih Tinggi */}
-                <h3 className="text-3xl font-extrabold font-playfair text-gray-900 dark:text-white leading-tight">
-                  Palang Merah Remaja (PMR)
-                </h3>
-                
-                {/* TEKS: Warna Jelas, Spasi Baris Lebih Rileks */}
-                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-source-sans mt-2">
-                  PMR adalah platform bagi pelajar untuk aktif dalam kegiatan kemanusiaan, meliputi 
-                  **Keterampilan Pertolongan Pertama**, **Edukasi Kesehatan Remaja**, dan inisiatif 
-                  **Sosial Kemasyarakatan**. Kami menyiapkan anggota sebagai **Relawan Masa Depan** yang kompeten dan berjiwa sosial tinggi.
-                </p>
+                {/* Background Decor */}
+                <div className="absolute -bottom-12 -right-12 text-[12rem] font-black text-primary/[0.03] pointer-events-none tracking-tighter italic">PMR</div>
               </div>
             </div>
 
-            {/* Kartu 2: Tentang SAF-C */}
-            <div className="animate-fade-in p-10 border border-secondary/30 bg-white/70 dark:bg-gray-800/70 rounded-3xl shadow-2xl backdrop-blur-lg hover:shadow-secondary/50 transition-all duration-300 ease-in-out cursor-pointer group transform hover:-translate-y-1">
-              <div className="flex flex-col items-start space-y-5">
-                
-                {/* ICON SAF-C: Shield User */}
-                <div className="p-4 bg-secondary text-white rounded-xl shadow-xl transform group-hover:scale-105 transition-transform duration-300">
-                  <ShieldUserIcon className="w-8 h-8" />
+            {/* Kartu 2: SAF-C (Kanan - Lebih Ramping) */}
+            <div className="lg:col-span-5 group">
+              <div className="relative h-full p-12 bg-gray-900 dark:bg-primary text-white rounded-[3rem] border border-gray-800 transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-2xl">
+                <div className="space-y-8 relative z-10">
+                  <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 group-hover:-rotate-6 transition-transform">
+                    <ShieldUserIcon className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold tracking-tight uppercase">Kontingen <br /> SAF-C WIRA</h3>
+                    <p className="text-md text-white/70 font-light leading-relaxed italic">
+                      Nama kebanggaan kami yang melambangkan kedisiplinan, keterampilan teknis, dan kepemimpinan di SMKN 1 Purwokerto.
+                    </p>
+                  </div>
                 </div>
-
-                {/* SUB-JUDUL: Lebih Berani, Keterbacaan Lebih Tinggi */}
-                <h3 className="text-3xl font-extrabold font-playfair text-gray-900 dark:text-white leading-tight">
-                  Kontingen SAF-C WIRA
-                </h3>
-                
-                {/* TEKS: Warna Jelas, Spasi Baris Lebih Rileks */}
-                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-source-sans mt-2">
-                  **Smecone Aiders Fans Club (SAF-C)** adalah nama kebanggaan kontingen kami. Fokusnya adalah pada 
-                  **Kedisiplinan**, **Keterampilan Teknis**, dan **Public Speaking**. 
-                  Kami adalah unit yang terlatih untuk tanggap darurat dan memimpin kegiatan amal, 
-                  menciptakan lingkungan yang aman dan suportif di SMKN 1 Purwokerto.
-                </p>
+                {/* Background Decor */}
+                <div className="absolute -bottom-12 -right-12 text-[10rem] font-black text-white/[0.05] pointer-events-none tracking-tighter">SAF-C</div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

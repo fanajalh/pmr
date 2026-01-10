@@ -1,99 +1,114 @@
-import { Target, ListChecks } from "lucide-react" // Lucide Icons untuk estetika
+import { Target, ListChecks, ArrowRight, ShieldCheck, HeartPulse } from "lucide-react"
 
 export function VisionMissionSection() {
   return (
-    // Latar Belakang Dasar: Netral, siap untuk Dark/Light Mode
-    <section className="relative py-20 md:py-28 bg-gray-50 dark:bg-gray-950 overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-white dark:bg-[#030712] overflow-hidden">
       
-      {/* Efek Latar Belakang Geometris (Hanya muncul di belakang pilar) */}
-      <div className="absolute inset-0 z-0">
-        {/* Blob 1: Merah/Primary */}
-        <div className="absolute w-80 h-80 bg-primary/10 rounded-full mix-blend-multiply filter blur-3xl top-1/4 left-1/4 animate-blob dark:bg-primary/20"></div>
-        {/* Blob 2: Biru/Aksen */}
-        <div className="absolute w-96 h-96 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-3xl bottom-1/3 right-1/4 animate-blob animation-delay-2000 dark:bg-blue-500/20"></div>
+      {/* 1. Background Elements - Soft Glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-primary/5 dark:from-primary/10 to-transparent opacity-50" />
+        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-blue-500/10 rounded-full blur-[120px] animate-pulse delay-1000" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto">
           
-          {/* Judul Utama */}
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-5xl md:text-6xl font-extrabold font-playfair mb-3 text-gray-900 dark:text-white leading-none drop-shadow-sm">
-              Visi & Misi Kami
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-source-sans">
-              Landasan dan arah pergerakan PMR WIRA SMKN 1 Purwokerto
+          {/* 2. Header Section */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-4">
+                <ShieldCheck className="w-4 h-4" /> Foundation
+              </div>
+              <h2 className="text-5xl md:text-7xl font-extralight tracking-tighter text-gray-900 dark:text-white leading-none uppercase italic">
+                Visi & <span className="font-black not-italic text-primary">Misi</span>
+              </h2>
+            </div>
+            <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-sm font-light italic leading-snug">
+              "Menjadi garda terdepan kemanusiaan di lingkungan sekolah dan masyarakat."
             </p>
           </div>
 
-          {/* Grid Split Pillar (Glassmorphism & Border pada Dark Mode) */}
-          <div className="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl dark:shadow-black/40">
+          {/* 3. Visi & Misi Content Grid */}
+          <div className="grid lg:grid-cols-12 gap-8 items-stretch">
             
-            {/* 1. Kolom Visi: Primary Accent */}
-            <div className="p-10 lg:p-12 
-              bg-white/90 dark:bg-black/20 
-              backdrop-blur-sm dark:backdrop-blur-md 
-              border-r border-gray-200 dark:border-white/10
-              animate-fade-in transition-colors duration-300">
-              <div className="space-y-6">
+            {/* --- VISI (Kiri) --- */}
+            <div className="lg:col-span-5 group">
+              <div className="h-full p-10 md:p-14 bg-gray-50 dark:bg-white/[0.03] rounded-[3rem] border border-gray-100 dark:border-white/5 transition-all duration-500 hover:border-primary/30 relative overflow-hidden">
+                {/* Huge Background Number */}
+                <span className="absolute -top-10 -right-10 text-[15rem] font-black text-primary/5 dark:text-primary/[0.02] leading-none pointer-events-none">01</span>
                 
-                <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                  
-                  {/* Angka Penanda Besar '01' */}
-                  <div className="mb-4">
-                    <span className="text-8xl lg:text-9xl font-extrabold opacity-5 dark:opacity-10 font-playfair leading-none text-gray-900 dark:text-white">01</span>
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mb-8 shadow-xl shadow-primary/20 rotate-3 group-hover:rotate-6 transition-transform">
+                    <Target className="w-8 h-8" />
                   </div>
                   
-                  <h3 className="text-3xl font-extrabold font-playfair mb-4 border-b-2 border-primary/50 pb-2 text-primary dark:text-primary/90">
-                    Visi
-                  </h3>
-                  
-                  {/* Konten Visi */}
-                  <p className="text-lg leading-relaxed font-source-sans text-gray-700 dark:text-indigo-100/90">
-                    Mewujudkan PMR Wira SMKN 1 Purwokerto sebagai ekstrakurikuler yang **aktif dan transformatif**,
-                    sehingga dapat membawa perubahan yang lebih baik dengan tetap berlandaskan **7 Prinsip Dasar Palang Merah** dan **Tri Bakti PMR**.
+                  <h3 className="text-3xl font-black uppercase tracking-tight mb-6 text-gray-900 dark:text-white">Visi Utama</h3>
+                  <p className="text-xl md:text-2xl leading-relaxed font-medium text-gray-700 dark:text-gray-300 italic">
+                    Mewujudkan PMR Wira SMKN 1 Purwokerto sebagai ekstrakurikuler yang <span className="text-primary font-black">aktif dan transformatif</span>, berlandaskan 7 Prinsip Dasar Palang Merah.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* 2. Kolom Misi: Secondary Accent */}
-            <div className="p-10 lg:p-12 
-              bg-white/90 dark:bg-black/20 
-              backdrop-blur-sm dark:backdrop-blur-md 
-              animate-fade-in transition-colors duration-300">
-              <div className="space-y-6">
-                
-                <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                  
-                  {/* Angka Penanda Besar '02' */}
-                  <div className="mb-4">
-                    <span className="text-8xl lg:text-9xl font-extrabold opacity-5 dark:opacity-10 font-playfair leading-none text-gray-900 dark:text-white">02</span>
+            {/* --- MISI (Kanan) --- */}
+            <div className="lg:col-span-7 group">
+              <div className="h-full p-10 md:p-14 bg-gray-900 dark:bg-white/[0.05] rounded-[3rem] text-white relative overflow-hidden shadow-2xl">
+                 {/* Huge Background Number */}
+                 <span className="absolute -top-10 -right-10 text-[15rem] font-black text-white/[0.03] leading-none pointer-events-none">02</span>
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-16 h-16 bg-white text-gray-900 rounded-2xl flex items-center justify-center mb-8 shadow-xl -rotate-3 group-hover:-rotate-6 transition-transform">
+                    <ListChecks className="w-8 h-8" />
                   </div>
+
+                  <h3 className="text-3xl font-black uppercase tracking-tight mb-8">Misi Strategis</h3>
                   
-                  <h3 className="text-3xl font-extrabold font-playfair mb-4 border-b-2 border-blue-500/50 pb-2 text-blue-600 dark:text-blue-300">
-                    Misi
-                  </h3>
-                  
-                  {/* Konten Misi (Daftar yang Lebih Rapi) */}
-                  <ol className="text-lg leading-relaxed space-y-4 list-decimal list-inside pl-4 font-source-sans text-gray-700 dark:text-indigo-100/90">
-                    <li className="pl-2">
-                      <span className="font-semibold text-gray-900 dark:text-white">Edukasi Kepalangmerahan:</span> Menjadikan anggota PMR yang dapat memberikan informasi dan edukasi kepalangmerahan kepada seluruh siswa.
-                    </li>
-                    <li className="pl-2">
-                      <span className="font-semibold text-gray-900 dark:text-white">Kolaborasi Tim:</span> Meningkatkan kinerja serta kerja sama sesama anggota PMR WIRA secara berkelanjutan.
-                    </li>
-                    <li className="pl-2">
-                      <span className="font-semibold text-gray-900 dark:text-white">Reputasi Positif:</span> Mewujudkan PMR Wira SMKN 1 Purwokerto sebagai ekstrakurikuler yang terpandang baik di sekolah maupun masyarakat.
-                    </li>
-                  </ol>
+                  <div className="space-y-8">
+                    {[
+                      { 
+                        title: "Edukasi Kepalangmerahan", 
+                        desc: "Menjadi pusat informasi dan edukasi kesehatan bagi seluruh siswa.",
+                        icon: HeartPulse
+                      },
+                      { 
+                        title: "Kolaborasi Tim", 
+                        desc: "Meningkatkan sinergi dan profesionalitas antar anggota secara berkelanjutan.",
+                        icon: UsersIcon 
+                      },
+                      { 
+                        title: "Reputasi Positif", 
+                        desc: "Membangun citra organisasi yang inspiratif di mata sekolah dan masyarakat.",
+                        icon: ShieldCheck
+                      },
+                    ].map((misi, i) => (
+                      <div key={i} className="flex gap-5 group/item">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-sm font-bold group-hover/item:bg-primary group-hover/item:border-primary transition-all">
+                          {i + 1}
+                        </div>
+                        <div className="space-y-1">
+                          <h4 className="text-lg font-bold uppercase tracking-wide">{misi.title}</h4>
+                          <p className="text-white/60 font-light leading-relaxed">{misi.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
     </section>
+  )
+}
+
+// Helper Icon for Mapping
+function UsersIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
   )
 }

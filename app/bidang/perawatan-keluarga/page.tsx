@@ -2,19 +2,23 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Home, Heart } from "lucide-react"
+import { Home, Heart, Stethoscope, ClipboardCheck, Thermometer, UserPlus } from "lucide-react"
 
 export default function PerawatanKeluargaPage() {
+  const steps = [
+    { title: "Persiapan Alat", icon: <Stethoscope className="w-5 h-5" /> },
+    { title: "Persiapan Pasien", icon: <UserPlus className="w-5 h-5" /> },
+    { title: "Tindakan Tepat", icon: <Thermometer className="w-5 h-5" /> },
+    { title: "Dokumentasi", icon: <ClipboardCheck className="w-5 h-5" /> },
+  ]
+
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950 text-foreground">
       <Navigation />
 
       <main className="flex-grow">
-
         {/* ================= HERO SECTION ================= */}
-        <section className="relative py-28 md:py-40 flex items-center justify-center overflow-hidden">
-          
-          {/* Background */}
+        <section className="relative py-32 md:py-48 flex items-center justify-center overflow-hidden">
           <Image
             src="/images/perawatan-keluarga.jpg"
             alt="Perawatan Keluarga"
@@ -23,150 +27,106 @@ export default function PerawatanKeluargaPage() {
             className="object-cover object-center scale-105"
           />
 
-          {/* Blur Overlay */}
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+          {/* Gradient Overlay for Readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+          <div className="absolute inset-0 backdrop-blur-[2px]" />
 
-          {/* Content */}
-          <div className="relative z-20 container mx-auto px-4 text-center text-white max-w-4xl">
+          <div className="relative z-20 container mx-auto px-4 text-left text-white max-w-6xl grid grid-cols-1 lg:grid-cols-2 items-center">
+            <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-red-600/90 backdrop-blur-md shadow-xl text-sm font-bold uppercase tracking-widest">
+                <Home className="w-4 h-4" />
+                Home Care Program
+              </div>
 
-            <div className="w-20 h-1 bg-white/70 mx-auto mb-6 rounded-full" />
+              <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9]">
+                MERAWAT <br />
+                <span className="text-red-500 underline decoration-white/20 underline-offset-8">KELUARGA</span>
+              </h1>
 
-            {/* Logo bulat */}
-            <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-red-600/90 shadow-2xl 
-              flex items-center justify-center border-4 border-white/80 overflow-hidden">
-              <Image
-                src="/images/perawatan-keluarga.jpg"
-                alt="Perawatan Keluarga"
-                width={96}
-                height={96}
-                className="object-cover rounded-full"
-              />
+              <p className="text-xl md:text-2xl text-zinc-200 font-light max-w-xl italic border-l-4 border-red-500 pl-6">
+                "Memberikan kenyamanan dan perawatan terbaik dengan kasih sayang di lingkungan rumah."
+              </p>
             </div>
-
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight drop-shadow-xl">
-              Perawatan Keluarga
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/90 font-light">
-              Merawat dengan Kasih Sayang di Rumah
-            </p>
           </div>
-
         </section>
-
-        {/* ================= DIVIDER IMAGE ================= */}
-        <div className="mt-6 p-0">
-          <div className="relative w-full aspect-video md:max-w-5xl overflow-hidden mx-auto 
-            rounded-none md:rounded-xl shadow-2xl border border-border/50">
-            
-            <Image
-              src="/images/perawatan-keluarga.jpg"
-              alt="Perawatan Keluarga"
-              fill
-              className="object-cover object-center"
-            />
-
-            <div className="absolute inset-0 bg-black/10" />
-          </div>
-        </div>
 
         {/* ================= CONTENT SECTION ================= */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 max-w-4xl space-y-14">
+        <section className="py-24">
+          <div className="container mx-auto px-4 max-w-6xl">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+              
+              {/* LEFT COLUMN: ABOUT & STEPS */}
+              <div className="lg:col-span-7 space-y-12">
+                <div className="space-y-6">
+                  <h2 className="text-4xl font-black tracking-tight text-zinc-900 dark:text-zinc-50 uppercase">
+                    Tentang <span className="text-red-600">PK</span>
+                  </h2>
+                  <p className="text-xl text-muted-foreground leading-relaxed">
+                    Materi ini membekali anggota PMR dengan keterampilan praktis untuk merawat anggota keluarga yang sakit menggunakan 
+                    peralatan sederhana tanpa mengabaikan standar kesehatan.
+                  </p>
+                </div>
 
-            {/* ABOUT CARD */}
-            <Card className="border border-white/20 bg-card/50 backdrop-blur-md shadow-xl">
-              <CardHeader>
-                <CardTitle className="text-3xl font-bold text-red-600 flex items-center gap-3">
-                  <Home className="h-7 w-7" />
-                  Tentang Perawatan Keluarga
-                </CardTitle>
-              </CardHeader>
+                {/* Steps Horizontal List */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {steps.map((step, i) => (
+                    <div key={i} className="p-4 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex flex-col items-center text-center gap-3 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="p-3 bg-red-50 dark:bg-red-950/30 rounded-xl text-red-600">
+                        {step.icon}
+                      </div>
+                      <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">{step.title}</span>
+                    </div>
+                  ))}
+                </div>
 
-              <CardContent>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Materi ini mengajarkan siswa-siswi cara merawat anggota keluarga menggunakan 
-                  peralatan sederhana yang tersedia di rumah tanpa mengabaikan kenyamanan pasien.
-                  Mulai dari persiapan alat, persiapan pasien, cara memberikan tindakan, hingga 
-                  pentingnya dokumentasi perawatan.
-                </p>
-              </CardContent>
-            </Card>
+                <div className="relative aspect-video rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800">
+                  <Image
+                    src="/images/perawatan-keluarga.jpg"
+                    alt="Praktek PK"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
 
-            {/* GRID SECTION */}
-            <div className="grid md:grid-cols-2 gap-10">
-
-              {/* Card 1 */}
-              <Card className="shadow-lg border border-red-200/40 bg-card/50 backdrop-blur-md 
-                transition duration-300 hover:scale-[1.02] hover:shadow-2xl">
-                
-                <CardContent className="p-8">
-                  <h3 className="font-bold text-2xl text-primary mb-6 flex items-center gap-2">
-                    <Heart className="h-6 w-6" />
-                    Aspek Perawatan
-                  </h3>
-
-                  <div className="space-y-4">
-                    
-                    <div className="flex gap-3 items-start">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                      <p className="text-muted-foreground text-sm">
-                        Mempersiapkan alat perawatan
+              {/* RIGHT COLUMN: PRINCIPLES (STIKY) */}
+              <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-8">
+                <Card className="bg-red-600 border-none rounded-[2.5rem] p-4 shadow-2xl shadow-red-500/20">
+                  <CardHeader className="text-white">
+                    <CardTitle className="text-3xl font-black uppercase tracking-tight flex items-center gap-3">
+                      <Heart className="fill-white" />
+                      Prinsip Utama
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="p-6 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 text-white group hover:bg-white hover:text-red-600 transition-all duration-500">
+                      <h4 className="font-black text-xl mb-2">Kenyamanan Pasien</h4>
+                      <p className="text-sm leading-relaxed opacity-90">
+                        Menjamin keamanan dan kondisi psikologis pasien tetap terjaga selama proses perawatan berlangsung.
                       </p>
                     </div>
 
-                    <div className="flex gap-3 items-start">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                      <p className="text-muted-foreground text-sm">
-                        Mempersiapkan kondisi pasien
+                    <div className="p-6 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 text-white group hover:bg-white hover:text-red-600 transition-all duration-500">
+                      <h4 className="font-black text-xl mb-2">Sistem Dokumentasi</h4>
+                      <p className="text-sm leading-relaxed opacity-90">
+                        Pencatatan perkembangan pasien secara berkala untuk memudahkan konsultasi dengan tenaga medis profesional.
                       </p>
                     </div>
+                  </CardContent>
+                </Card>
 
-                    <div className="flex gap-3 items-start">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                      <p className="text-muted-foreground text-sm">
-                        Cara memberikan tindakan yang tepat
-                      </p>
-                    </div>
+                {/* Small Tip Box */}
+                <div className="p-8 bg-zinc-900 dark:bg-zinc-800 rounded-[2rem] text-zinc-400">
+                  <p className="text-sm italic">
+                    "Kunci dari Perawatan Keluarga bukan hanya pada obat, tapi pada kebersihan dan ketulusan sang perawat."
+                  </p>
+                </div>
+              </div>
 
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Card 2 */}
-              <Card className="shadow-lg border border-red-200/40 bg-card/50 backdrop-blur-md 
-                transition duration-300 hover:scale-[1.02] hover:shadow-2xl">
-                
-                <CardContent className="p-8">
-                  <h3 className="font-bold text-2xl text-primary mb-6">
-                    Prinsip Utama
-                  </h3>
-
-                  <div className="space-y-5">
-                    
-                    <div className="p-4 bg-primary/5 rounded-xl">
-                      <p className="text-primary font-semibold mb-1">Kenyamanan Pasien</p>
-                      <p className="text-sm text-muted-foreground">
-                        Selalu mengutamakan kenyamanan dan keamanan pasien dalam setiap tindakan perawatan.
-                      </p>
-                    </div>
-
-                    <div className="p-4 bg-primary/5 rounded-xl">
-                      <p className="text-primary font-semibold mb-1">Dokumentasi</p>
-                      <p className="text-sm text-muted-foreground">
-                        Mencatat setiap tindakan yang diberikan untuk memantau perkembangan dan menghindari kesalahan.
-                      </p>
-                    </div>
-
-                  </div>
-                </CardContent>
-
-              </Card>
             </div>
-
           </div>
         </section>
-
       </main>
 
       <Footer />
