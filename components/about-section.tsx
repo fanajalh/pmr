@@ -1,4 +1,5 @@
 import React from "react";
+import { CDN_IMAGES } from "@/lib/cdn-images";
 
 const HeartHandIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg {...props} fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -14,74 +15,68 @@ const ShieldUserIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export function AboutSection() {
   return (
-    <section className="relative py-32 bg-white dark:bg-[#020617] overflow-hidden font-poppins">
+    <section className="relative py-32 bg-background overflow-hidden font-sans border-b border-border/20">
       
-      {/* Background Decorative - Ramping & Halus */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-[10%] -right-[5%] w-[30%] h-[40%] bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute top-[40%] -left-[5%] w-[20%] h-[30%] bg-blue-500/5 rounded-full blur-[100px]" />
+      {/* Background Decorative */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           
-          {/* Header: Tipografi Ramping & Bold */}
-          <div className="grid lg:grid-cols-2 gap-12 items-end mb-20">
+          {/* Header */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-end mb-20">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="h-[1px] w-10 bg-primary" />
                 <span className="text-[10px] font-bold tracking-[0.4em] text-primary uppercase">Who We Are</span>
               </div>
-              <h2 className="text-5xl md:text-7xl font-extralight tracking-tighter text-gray-900 dark:text-white leading-none uppercase italic">
+              <h2 className="text-5xl md:text-7xl font-light tracking-tighter text-slate-900 dark:text-white leading-none uppercase font-heading">
                 Integritas <br />
-                <span className="font-black not-italic text-primary">& Kemanusiaan</span>
+                <span className="font-semibold text-primary not-italic">& Kemanusiaan</span>
               </h2>
             </div>
-            <p className="text-lg text-gray-500 dark:text-gray-400 font-light leading-relaxed border-l border-gray-200 dark:border-white/10 pl-8 italic">
-              "Membentuk generasi relawan muda yang tidak hanya terampil dalam teknis, tetapi juga memiliki empati tinggi terhadap sesama."
+            <p className="text-base md:text-lg text-slate-500 dark:text-slate-400 font-light leading-relaxed border-l border-primary/20 pl-6 italic">
+              "Membentuk generasi relawan muda yang tidak hanya terampil dalam teknis kepalangmerahan, tetapi juga memiliki empati tinggi terhadap sesama."
             </p>
           </div>
 
           {/* Content Cards: Asymmetric Grid */}
           <div className="grid lg:grid-cols-12 gap-8">
             
-            {/* Kartu 1: PMR (Kiri - Lebih Lebar) */}
+            {/* Kartu 1: PMR (Kiri) */}
             <div className="lg:col-span-7 group">
-              <div className="relative h-full p-12 bg-gray-50 dark:bg-white/[0.02] border border-gray-100 dark:border-white/5 rounded-[3rem] transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 overflow-hidden">
+              <div className="relative h-full p-10 md:p-12 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-2xl transition-all duration-500 hover:border-primary/20 shadow-sm">
                 <div className="flex flex-col md:flex-row gap-8 relative z-10">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20 group-hover:rotate-6 transition-transform">
-                      <HeartHandIcon className="w-8 h-8" />
+                    <div className="w-14 h-14 bg-primary/10 text-primary border border-primary/20 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+                      <HeartHandIcon className="w-6 h-6" />
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white uppercase">Palang Merah Remaja</h3>
-                    <p className="text-lg text-gray-600 dark:text-gray-400 font-light leading-relaxed">
-                      PMR adalah wadah bagi pelajar untuk mengasah <span className="text-primary font-medium">Keterampilan Pertolongan Pertama</span> dan edukasi kesehatan. Kami menyiapkan anggota menjadi relawan masa depan yang kompeten dan berjiwa sosial tinggi.
+                    <h3 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white uppercase font-heading">Palang Merah Remaja</h3>
+                    <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                      PMR adalah wadah bagi pelajar untuk mengasah <span className="text-primary font-medium">keterampilan pertolongan pertama</span>, kepemimpinan, dan edukasi kesehatan. Kami menyiapkan anggota menjadi relawan masa depan yang kompeten dan berjiwa sosial tinggi.
                     </p>
                   </div>
                 </div>
-                {/* Background Decor */}
-                <div className="absolute -bottom-12 -right-12 text-[12rem] font-black text-primary/[0.03] pointer-events-none tracking-tighter italic">PMR</div>
               </div>
             </div>
 
-            {/* Kartu 2: SAF-C (Kanan - Lebih Ramping) */}
+            {/* Kartu 2: SAF-C (Kanan) */}
             <div className="lg:col-span-5 group">
-              <div className="relative h-full p-12 bg-gray-900 dark:bg-primary text-white rounded-[3rem] border border-gray-800 transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-2xl">
+              <div className="relative h-full p-10 md:p-12 bg-slate-950 border border-white/5 rounded-2xl text-white transition-all duration-500 hover:border-primary/20 shadow-xl">
                 <div className="space-y-8 relative z-10">
-                  <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 group-hover:-rotate-6 transition-transform">
-                    <ShieldUserIcon className="w-8 h-8 text-white" />
+                  <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+                    <ShieldUserIcon className="w-6 h-6 text-primary" />
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-3xl font-bold tracking-tight uppercase">Kontingen <br /> SAF-C WIRA</h3>
-                    <p className="text-md text-white/70 font-light leading-relaxed italic">
-                      Nama kebanggaan kami yang melambangkan kedisiplinan, keterampilan teknis, dan kepemimpinan di SMKN 1 Purwokerto.
+                    <h3 className="text-2xl font-bold tracking-tight uppercase font-heading">Kontingen <br /> SAF-C WIRA</h3>
+                    <p className="text-xs md:text-sm text-slate-400 font-light leading-relaxed italic">
+                      Nama kebanggaan kami yang melambangkan kedisiplinan, keterampilan teknis tinggi, dan kepemimpinan berkarakter di SMKN 1 Purwokerto.
                     </p>
                   </div>
                 </div>
-                {/* Background Decor */}
-                <div className="absolute -bottom-12 -right-12 text-[10rem] font-black text-white/[0.05] pointer-events-none tracking-tighter">SAF-C</div>
               </div>
             </div>
 

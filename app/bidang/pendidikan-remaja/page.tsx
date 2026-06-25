@@ -1,150 +1,128 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Users, HandHeart, MessageCircleHeart, HeartHandshake, Sparkles, Smile } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { HandHeart, Users, Smile, Sparkles } from "lucide-react"
+import { CDN_IMAGES } from "@/lib/cdn-images"
 
 export default function PendidikanRemajaPage() {
-  const values = [
-    {
-      title: "Kesetiakawanan",
-      desc: "Saling membantu, peduli, dan hadir untuk teman sebaya dalam berbagai situasi sulit maupun senang.",
-      icon: <HandHeart className="h-8 w-8 text-red-600" />,
-      color: "bg-red-50 dark:bg-red-950/30",
-      border: "border-red-100 dark:border-red-900/50"
-    },
-    {
-      title: "Senasib Sepenanggungan",
-      desc: "Remaja merasa dekat karena mengalami tantangan, emosi, dan perjalanan pertumbuhan yang serupa.",
-      icon: <Users className="h-8 w-8 text-blue-600" />,
-      color: "bg-blue-50 dark:bg-blue-950/30",
-      border: "border-blue-100 dark:border-blue-900/50"
-    }
-  ]
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#fcfcfc] dark:bg-zinc-950 text-foreground">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-blue-100">
       <Navigation />
 
-      <main className="flex-grow">
-        {/* ================= HERO SECTION (SOFT & FRIENDLY) ================= */}
-        <section className="relative py-32 md:py-44 flex items-center justify-center overflow-hidden">
-          <Image
-            src="/images/background.jpg"
-            alt="Pendidikan Remaja Sebaya"
-            fill
-            priority
-            className="object-cover object-center scale-105"
-          />
-          
-          {/* Warm Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-zinc-950/90" />
-          <div className="absolute inset-0 backdrop-blur-[3px]" />
+      <main>
+        {/* ================= HERO SECTION ================= */}
+        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-slate-100/30 dark:bg-slate-950/20 pt-20">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0 select-none">
+            <Image
+              src={CDN_IMAGES.prs}
+              alt="Pendidikan Remaja Sebaya"
+              fill
+              priority
+              className="object-cover opacity-60 dark:opacity-50 scale-100"
+            />
+            {/* Multi-layered Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background" />
+          </div>
 
-          <div className="relative z-20 container mx-auto px-4 text-center text-white max-w-4xl space-y-6">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 animate-pulse">
-                <Smile className="w-8 h-8 text-yellow-400" />
-              </div>
+          <div className="relative z-20 container mx-auto px-6 text-center max-w-4xl space-y-6">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100/80 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.05] text-slate-800 dark:text-slate-300 text-xs font-medium tracking-wide mb-4">
+              <Smile className="w-3.5 h-3.5 text-primary" />
+              Peer Education Program
             </div>
 
-            <h1 className="text-5xl md:text-8xl font-black tracking-tighter drop-shadow-2xl">
-              PRS <span className="text-red-500 font-light italic">Wira</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter text-slate-900 dark:text-white leading-none font-heading uppercase">
+              PRS <span className="font-semibold text-primary">Wira</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-zinc-200 font-light max-w-2xl mx-auto leading-relaxed">
-              "Membangun Perubahan Melalui Pendekatan <span className="text-white font-semibold">Sebaya</span>"
+            <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+              Membangun perubahan positif melalui pendekatan sebaya. Teman diskusi terpercaya bagi tumbuh kembang remaja.
             </p>
           </div>
         </section>
 
         {/* ================= CONTENT SECTION ================= */}
-        <section className="py-24 relative">
-          {/* Subtle Background Pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)] [background-size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] -z-10" />
-
-          <div className="container mx-auto px-4 max-w-6xl">
+        <section className="py-32">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             
-            {/* ABOUT SECTION (MODERN SPLIT) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32">
-              <div className="relative">
-                <div className="absolute -top-6 -left-6 w-32 h-32 bg-red-500/10 rounded-full blur-3xl" />
-                <Card className="border-none bg-white dark:bg-zinc-900 shadow-2xl rounded-[2.5rem] overflow-hidden">
-                  <CardHeader className="pb-2">
-                    <div className="flex items-center gap-3 text-red-600 font-bold mb-2 uppercase tracking-widest text-xs">
-                      <Sparkles className="w-4 h-4" />
-                      Our Philosophy
-                    </div>
-                    <CardTitle className="text-3xl font-black text-zinc-900 dark:text-zinc-50 flex items-center gap-3">
-                      Apa itu PRS?
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      PRS (Pendidikan Remaja Sebaya) adalah pendekatan yang memanfaatkan kekuatan hubungan sesama remaja 
-                      untuk membangun perubahan perilaku yang positif.
-                    </p>
-                    <div className="flex flex-wrap gap-3 pt-4">
-                      {['Kesetiakawanan', 'Empati', 'Komunikasi'].map((tag) => (
-                        <span key={tag} className="px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-sm font-medium">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl group">
-                <Image
-                  src="/images/background.jpg"
-                  alt="PMR dalam kegiatan PRS"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-red-600/20 to-transparent" />
-              </div>
-            </div>
-
-            {/* VALUES SECTION (BENTO STYLE) */}
-            <div className="space-y-12">
-              <div className="text-center space-y-4">
-                <h2 className="text-4xl font-black tracking-tight text-zinc-900 dark:text-zinc-50 uppercase">
-                  Nilai Utama <span className="text-red-600">PRS</span>
-                </h2>
-                <p className="text-muted-foreground max-w-md mx-auto italic">Modal utama dalam menciptakan lingkungan remaja yang saling mendukung.</p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                {values.map((val, index) => (
-                  <div key={index} className="group relative">
-                    <div className={`absolute inset-0 rounded-[2.5rem] ${val.color} blur-xl opacity-0 group-hover:opacity-100 transition-opacity`} />
-                    <Card className={`relative h-full border-2 ${val.border} bg-white dark:bg-zinc-900/50 backdrop-blur-md rounded-[2.5rem] transition-all duration-500 group-hover:shadow-2xl`}>
-                      <CardContent className="p-10 flex flex-col md:flex-row items-center md:items-start gap-8">
-                        <div className={`w-20 h-20 shrink-0 ${val.color} rounded-3xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500`}>
-                          {val.icon}
-                        </div>
-                        <div className="space-y-3 text-center md:text-left">
-                          <h3 className="font-black text-2xl text-zinc-900 dark:text-zinc-100 uppercase tracking-tight">
-                            {val.title}
-                          </h3>
-                          <p className="text-muted-foreground leading-relaxed text-lg font-light">
-                            {val.desc}
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
+            {/* Split Info */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-32">
+              
+              {/* Left Column: Text & Image */}
+              <div className="lg:col-span-7 space-y-12">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="h-[1px] w-10 bg-primary" />
+                    <span className="text-[10px] font-bold tracking-[0.4em] text-primary uppercase">Our Philosophy</span>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <h2 className="text-4xl font-light tracking-tighter text-slate-900 dark:text-white leading-tight font-heading uppercase">
+                    Apa itu PRS?
+                  </h2>
+                  <p className="text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    Pendidikan Remaja Sebaya (PRS) adalah metode pendekatan interpersonal yang memanfaatkan kekuatan hubungan pertemanan untuk membentuk perilaku remaja yang positif, sehat, dan berintegritas. Di sini kami belajar bersama, berbagi empati, membangun keterampilan mendengarkan secara aktif, dan mengedukasi isu kesehatan reproduksi maupun sosial.
+                  </p>
+                </div>
 
-            {/* FOOTER QUOTE */}
-            <div className="mt-24 text-center p-12 bg-white dark:bg-zinc-900 rounded-[3rem] border border-dashed border-zinc-200 dark:border-zinc-800">
-               <HeartHandshake className="w-12 h-12 text-red-500 mx-auto mb-6" />
-               <p className="text-2xl font-light italic text-zinc-600 dark:text-zinc-400">
-                "Teman bicara terbaik bagi remaja, adalah mereka yang memahami langkah kaki yang sama."
-               </p>
+                <div className="relative aspect-video rounded-xl overflow-hidden border border-border/40 dark:border-white/5">
+                  <Image
+                    src={CDN_IMAGES.prs}
+                    alt="PMR dalam kegiatan PRS"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Right Column: Pilar Grid */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="space-y-2 mb-8">
+                  <h3 className="text-2xl font-light tracking-tighter text-slate-900 dark:text-white uppercase font-heading">
+                    Nilai Utama PRS
+                  </h3>
+                  <p className="text-xs text-slate-400">Modal utama menciptakan lingkungan sebaya yang kondusif.</p>
+                </div>
+
+                {/* Card 1 */}
+                <div className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 shadow-sm">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                    <HandHeart className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg text-slate-900 dark:text-white font-heading">Kesetiakawanan</h4>
+                    <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light mt-1">
+                      Saling mendukung, mendengarkan tanpa menghakimi, dan hadir bagi teman sebaya di masa sulit maupun bahagia.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Card 2 */}
+                <div className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 shadow-sm">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                    <Users className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg text-slate-900 dark:text-white font-heading">Senasib Sepenanggungan</h4>
+                    <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light mt-1">
+                      Merasa dekat karena melewati perjalanan fase tumbuh kembang, dinamika emosi, dan tantangan sosial yang serupa.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Card 3 */}
+                <div className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 shadow-sm">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                    <Sparkles className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg text-slate-900 dark:text-white font-heading">Empati Sosial</h4>
+                    <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light mt-1">
+                      Membina ketangkasan emosional untuk memahami kebutuhan, keluh kesah, serta perasaan sesama rekan sebaya.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
           </div>

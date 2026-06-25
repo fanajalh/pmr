@@ -1,11 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins } from "next/font/google" // Ganti ke Poppins
+import { Poppins } from "next/font/google"
 import "./globals.css"
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"], // 300 adalah yang paling ramping
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
   variable: "--font-poppins",
 })
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="id" className={`${poppins.variable} font-sans antialiased`}>
+    <html lang="id" className={`dark ${poppins.variable} font-sans antialiased`}>
       <body className={poppins.className}>{children}</body>
     </html>
   )

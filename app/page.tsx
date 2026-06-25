@@ -7,12 +7,10 @@ import { VisionMissionSection } from "@/components/vision-mission-section"
 import { SekbidSection } from "@/components/sekbid-section"
 import { BidangSection } from "@/components/bidang-section"
 import { CallToActionSection } from "@/components/cta-section"
-import { EventPopup } from "@/components/event-popup" 
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      <EventPopup /> 
       <Navigation />
       <main>
         <HeroSection />

@@ -1,135 +1,128 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Heart, Shield, Ambulance, Clock, Activity, AlertCircle } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Shield, Clock, Activity, Ambulance } from "lucide-react"
+import { CDN_IMAGES } from "@/lib/cdn-images"
 
 export default function PertolonganPertamaPage() {
-  const trainingFocus = [
-    { title: "Penanganan Luka", desc: "Teknik membalut dan merawat luka ringan hingga berat secara steril." },
-    { title: "Bantuan Medis", desc: "Prosedur pemanggilan bantuan dan koordinasi dengan ambulans." },
-    { title: "Kondisi Darurat", desc: "Identifikasi cepat gejala pingsan, syok, hingga henti jantung." }
-  ]
-
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950 text-foreground">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-blue-100">
       <Navigation />
 
-      <main className="flex-grow">
-        {/* ============== HERO SECTION (EMERGENCY STYLE) ============== */}
-        <section className="relative py-32 md:py-48 flex items-center justify-center overflow-hidden">
-          <Image
-            src="/images/pertolongan-pertama.png"
-            alt="Pertolongan Pertama"
-            fill
-            priority
-            className="object-cover object-center scale-105"
-          />
+      <main>
+        {/* ================= HERO SECTION ================= */}
+        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-slate-100/30 dark:bg-slate-950/20 pt-20">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0 select-none">
+            <Image
+              src={CDN_IMAGES.pertolonganPertama}
+              alt="Pertolongan Pertama"
+              fill
+              priority
+              className="object-cover opacity-60 dark:opacity-50 scale-100"
+            />
+            {/* Multi-layered Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background" />
+          </div>
 
-          {/* Stronger Overlay for Heroic Feel */}
-          <div className="absolute inset-0 bg-gradient-to-t from-red-950/80 via-black/40 to-black/20" />
-          <div className="absolute inset-0 backdrop-blur-[2px]" />
-
-          <div className="relative z-20 container mx-auto px-4 text-center text-white max-w-4xl space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600 shadow-lg shadow-red-500/50 animate-pulse">
-              <Shield className="w-4 h-4 fill-white" />
-              <span className="text-xs font-black uppercase tracking-widest">Core Competency</span>
+          <div className="relative z-20 container mx-auto px-6 text-center max-w-4xl space-y-6">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100/80 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.05] text-slate-800 dark:text-slate-300 text-xs font-medium tracking-wide mb-4">
+              <Shield className="w-3.5 h-3.5 text-primary" />
+              Core Competency
             </div>
 
-            <h1 className="text-6xl md:text-9xl font-black mb-4 tracking-tighter leading-none italic uppercase">
-              Pertolongan <br />
-              <span className="text-red-500 not-italic">Pertama</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter text-slate-900 dark:text-white leading-none font-heading uppercase">
+              Pertolongan <span className="font-semibold text-primary">Pertama</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-zinc-200 font-light max-w-2xl mx-auto">
-              "Jantung Kegiatan Kemanusiaan: Bertindak Cepat, Tepat, dan Berani Menyelamatkan."
+            <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+              Jantung kegiatan kemanusiaan. Bertindak sigap, tepat, dan berani untuk menyelamatkan serta meminimalkan keparahan korban.
             </p>
           </div>
         </section>
 
-        {/* ============== CONTENT SECTION ============== */}
-        <section className="py-24">
-          <div className="container mx-auto px-4 max-w-6xl">
+        {/* ================= CONTENT SECTION ================= */}
+        <section className="py-32">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             
-            {/* GRID 1: ABOUT & IMAGE */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-32">
-              <div className="lg:col-span-6 space-y-8">
-                <div className="flex items-center gap-4">
-                  <div className="h-1 w-12 bg-red-600" />
-                  <span className="font-bold text-red-600 uppercase tracking-widest">Definition</span>
+            {/* Split Info */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-32">
+              
+              {/* Left Column: Text & Image */}
+              <div className="lg:col-span-7 space-y-12">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="h-[1px] w-10 bg-primary" />
+                    <span className="text-[10px] font-bold tracking-[0.4em] text-primary uppercase">Definition</span>
+                  </div>
+                  <h2 className="text-4xl font-light tracking-tighter text-slate-900 dark:text-white leading-tight font-heading uppercase">
+                    Tindakan Awal Penyelamat Nyawa
+                  </h2>
+                  <p className="text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    Pertolongan Pertama (PP) adalah kompetensi utama kepedulian medis relawan Wira. Kami mendidik anggota untuk menguasai metode penanganan luka, pembidaian, pembalutan cedera, resusitasi jantung paru (RJP), serta koordinasi darurat bersama tim ambulans secara tenang di bawah tekanan tinggi.
+                  </p>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-50 leading-tight italic">
-                  Tindakan Awal <br /> Penyelamat Nyawa.
-                </h2>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Pertolongan Pertama (PP) adalah garda terdepan dalam situasi darurat. Kami melatih anggota untuk tetap tenang di bawah tekanan, memberikan perawatan luka, dan memastikan korban stabil sebelum dievakuasi.
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                   <div className="p-4 bg-zinc-50 dark:bg-zinc-900 rounded-2xl flex items-center gap-3">
-                      <Clock className="text-red-600" />
-                      <span className="font-bold text-sm">Respon Cepat</span>
-                   </div>
-                   <div className="p-4 bg-zinc-50 dark:bg-zinc-900 rounded-2xl flex items-center gap-3">
-                      <Activity className="text-red-600" />
-                      <span className="font-bold text-sm">Akurasi Medis</span>
-                   </div>
-                </div>
-              </div>
 
-              <div className="lg:col-span-6 relative group">
-                <div className="absolute -inset-4 bg-red-500/10 rounded-full blur-3xl" />
-                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-zinc-100 dark:border-zinc-800">
+                <div className="relative aspect-video rounded-xl overflow-hidden border border-border/40 dark:border-white/5">
                   <Image
-                    src="/images/pertolongan-pertama.png"
+                    src={CDN_IMAGES.pertolonganPertama}
                     alt="PP Action"
-                    width={600}
-                    height={400}
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               </div>
-            </div>
 
-            {/* GRID 2: FOCUS & PRINCIPLES */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              
-              {/* TRAINING FOCUS */}
-              <Card className="lg:col-span-2 border-none shadow-none bg-transparent space-y-8">
-                <h3 className="text-3xl font-black uppercase tracking-tighter italic">Fokus Pelatihan</h3>
-                <div className="grid md:grid-cols-3 gap-6">
-                  {trainingFocus.map((item, i) => (
-                    <div key={i} className="p-8 bg-white dark:bg-zinc-900 rounded-[2rem] shadow-xl border border-zinc-100 dark:border-zinc-800 hover:bg-red-600 group transition-all duration-500">
-                      <div className="w-12 h-12 bg-red-100 dark:bg-red-950 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white transition-colors">
-                        <AlertCircle className="text-red-600" />
-                      </div>
-                      <h4 className="font-black text-lg mb-3 uppercase group-hover:text-white transition-colors">{item.title}</h4>
-                      <p className="text-sm text-muted-foreground group-hover:text-red-50 transition-colors leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
+              {/* Right Column: Pilar Grid */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="space-y-2 mb-8">
+                  <h3 className="text-2xl font-light tracking-tighter text-slate-900 dark:text-white uppercase font-heading">
+                    Prinsip Utama PP
+                  </h3>
+                  <p className="text-xs text-slate-400">Pondasi dasar tindakan pertolongan pertama di lapangan.</p>
                 </div>
-              </Card>
 
-              {/* PRINCIPLES */}
-              <div className="bg-zinc-900 dark:bg-red-600 rounded-[2.5rem] p-10 text-white space-y-8 flex flex-col justify-center shadow-2xl">
-                <h3 className="text-3xl font-black italic uppercase">Prinsip Utama</h3>
-                <div className="space-y-6">
-                  <div className="space-y-2">
-                    <p className="font-black text-xl uppercase tracking-widest text-red-500 dark:text-white">01. Kesiapan</p>
-                    <p className="text-sm text-zinc-400 dark:text-red-100 italic font-light">Ketelitian tinggi dalam setiap tindakan medis awal.</p>
+                {/* Card 1 */}
+                <div className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 shadow-sm">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                    <Clock className="h-5 w-5 text-primary" />
                   </div>
-                  <div className="w-full h-px bg-white/10" />
-                  <div className="space-y-2">
-                    <p className="font-black text-xl uppercase tracking-widest text-red-500 dark:text-white">02. Keamanan</p>
-                    <p className="text-sm text-zinc-400 dark:text-red-100 italic font-light">Pastikan kondisi aman bagi penolong, korban, dan lingkungan.</p>
+                  <div>
+                    <h4 className="font-bold text-lg text-slate-900 dark:text-white font-heading">Respon Cepat</h4>
+                    <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light mt-1">
+                      Mengambil tindakan penanganan medis awal secara sigap dan tepat dalam hitungan menit kritis.
+                    </p>
                   </div>
                 </div>
-                <div className="pt-4">
-                  <Ambulance className="w-16 h-16 opacity-20" />
+
+                {/* Card 2 */}
+                <div className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 shadow-sm">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                    <Activity className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg text-slate-900 dark:text-white font-heading">Akurasi Medis</h4>
+                    <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light mt-1">
+                      Menghindari kesalahan fatal dengan melakukan prosedur medis awal yang tervalidasi dan steril.
+                    </p>
+                  </div>
                 </div>
+
+                {/* Card 3 */}
+                <div className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 shadow-sm">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                    <Ambulance className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg text-slate-900 dark:text-white font-heading">Kesiapan Evakuasi</h4>
+                    <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light mt-1">
+                      Menjaga kestabilan kondisi fisik korban sebelum dipindahkan ke ambulans atau rumah sakit rujukan.
+                    </p>
+                  </div>
+                </div>
+
               </div>
-
             </div>
 
           </div>

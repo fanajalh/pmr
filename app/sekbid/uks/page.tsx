@@ -1,138 +1,118 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle2, HeartPulse, ClipboardCheck, Sparkles, Activity } from "lucide-react"
+import { HeartPulse, ClipboardCheck, Sparkles, Activity, CheckCircle2 } from "lucide-react"
+import { CDN_IMAGES } from "@/lib/cdn-images"
 
 export default function UKSPage() {
   const tasks = [
     {
-      text: "Membuat daftar piket UKS",
-      icon: <ClipboardCheck className="w-5 h-5 text-red-500" />,
+      text: "Mengelola daftar piket layanan kesehatan UKS harian.",
+      icon: <ClipboardCheck className="w-5 h-5 text-primary" />,
       category: "Scheduling"
     },
     {
-      text: "Menjaga kebersihan UKS",
-      icon: <Sparkles className="w-5 h-5 text-blue-500" />,
+      text: "Menjaga sterilisasi alat medis, kebersihan ruangan, dan stok obat UKS.",
+      icon: <Sparkles className="w-5 h-5 text-primary" />,
       category: "Sanitation"
     },
     {
-      text: "Membuat daftar petugas penjaga upacara",
-      icon: <Activity className="w-5 h-5 text-emerald-500" />,
+      text: "Menyusun dan menugaskan petugas pertolongan pertama saat upacara atau kegiatan besar sekolah.",
+      icon: <Activity className="w-5 h-5 text-primary" />,
       category: "Field Duty"
     }
   ]
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-blue-100">
       <Navigation />
       
-      <main className="relative overflow-hidden">
-        {/* Decorative Background - Health & Care Aesthetic */}
-        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-red-50/50 to-transparent dark:from-red-950/10 -z-10" />
-        
-        {/* Subtle Pulse Line Decor */}
-        <svg className="absolute top-40 right-0 opacity-[0.03] dark:opacity-[0.05] -z-10" width="400" height="200" viewBox="0 0 400 200">
-          <path d="M0 100 L150 100 L170 40 L190 160 L210 100 L400 100" fill="none" stroke="currentColor" strokeWidth="4" className="text-red-600" />
-        </svg>
+      <main>
+        {/* ================= HERO SECTION ================= */}
+        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-slate-100/30 dark:bg-slate-950/20 pt-20">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0 select-none">
+            <Image
+              src={CDN_IMAGES.uks}
+              alt="Unit Kesehatan Sekolah"
+              fill
+              priority
+              className="object-cover opacity-60 dark:opacity-50 scale-100"
+            />
+            {/* Multi-layered Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background" />
+          </div>
 
-        {/* Hero Section */}
-        <section className="pt-24 pb-16">
-          <div className="container mx-auto px-4 text-center">
-            <div className="relative inline-block mb-8">
-              {/* Outer Glow Effect */}
-              <div className="absolute inset-0 bg-red-500/20 blur-3xl rounded-full" />
-              
-              <div className="relative w-36 h-36 md:w-44 md:h-44 mx-auto rounded-3xl overflow-hidden shadow-2xl border-b-4 border-red-100 dark:border-red-900 bg-white">
-                <Image 
-                  src="/images/uks.jpeg" 
-                  alt="Logo UKS" 
-                  fill 
-                  className="object-cover" 
-                />
-              </div>
-              
-              {/* Floating Badge */}
-              <div className="absolute -bottom-2 -right-2 bg-white dark:bg-zinc-800 p-3 rounded-2xl shadow-xl border border-zinc-100 dark:border-zinc-700">
-                <HeartPulse className="w-6 h-6 text-red-600 animate-pulse" />
-              </div>
+          <div className="relative z-20 container mx-auto px-6 text-center max-w-4xl space-y-6">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100/80 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.05] text-slate-800 dark:text-slate-300 text-xs font-medium tracking-wide mb-4">
+              <HeartPulse className="w-3.5 h-3.5 text-primary" />
+              School Healthcare
             </div>
 
-            <div className="max-w-3xl mx-auto space-y-4">
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50">
-                Sekbid <span className="text-red-600">UKS</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-light italic tracking-wide">
-                Unit Kesehatan Sekolah
-              </p>
-            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter text-slate-900 dark:text-white leading-none font-heading uppercase">
+              Sekbid <span className="font-semibold text-primary">UKS</span>
+            </h1>
+
+            <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+              Unit Kesehatan Sekolah. Pusat pelayanan medis pertama bagi seluruh civitas akademika di SMKN 1 Purwokerto.
+            </p>
           </div>
         </section>
 
-        {/* Content Section */}
-        <section className="pb-24">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* ================= CONTENT SECTION ================= */}
+        <section className="py-32">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+            
+            {/* Split Info */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
               
-              {/* About Card - Elemen Glassmorphism */}
-              <div className="lg:col-span-5">
-                <Card className="border-none shadow-2xl shadow-red-500/5 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl">
-                  <CardHeader>
-                    <CardTitle className="text-2xl font-bold flex items-center gap-3">
-                      <div className="p-2 rounded-xl bg-red-50 dark:bg-red-950/30">
-                        <HeartPulse className="w-6 h-6 text-red-600" />
-                      </div>
-                      Tentang Sekbid UKS
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg">
-                      UKS (Usaha Kesehatan Sekolah) adalah salah satu Seksi Bidang dalam organisasi PMR yang bertugas
-                      untuk menjaga dan meningkatkan kesehatan anggota, serta mengedukasi warga sekolah tentang pentingnya
-                      pola hidup bersih dan sehat.
-                    </p>
-                  </CardContent>
-                </Card>
+              {/* Left Column: Tentang */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="h-[1px] w-10 bg-primary" />
+                  <span className="text-[10px] font-bold tracking-[0.4em] text-primary uppercase">Healthcare</span>
+                </div>
+                
+                <h2 className="text-4xl font-light tracking-tighter text-slate-900 dark:text-white leading-tight font-heading uppercase">
+                  Layanan Kesehatan & Sanitasi
+                </h2>
+                
+                <p className="text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                  SEKBID UKS (Seksi Bidang Usaha Kesehatan Sekolah) bertanggung jawab penuh menjaga fasilitas penanganan pasien darurat sekolah. Kami merancang jadwal piket harian anggota, memastikan kebersihan fasilitas rawat sementara, mengawasi ketersediaan obat-obatan P3K, serta sigap memberikan tindakan penanganan cedera ringan bagi siswa.
+                </p>
               </div>
 
-              {/* Tasks List - Structured & Clean */}
-              <div className="lg:col-span-7">
-                <div className="bg-zinc-50 dark:bg-zinc-900/50 rounded-[2.5rem] p-8 border border-zinc-100 dark:border-zinc-800">
-                  <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-                    <CheckCircle2 className="text-red-600 w-7 h-7" />
+              {/* Right Column: Tugas Grid */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex items-center gap-3 mb-8">
+                  <CheckCircle2 className="text-primary w-6 h-6" />
+                  <h3 className="text-2xl font-light tracking-tighter text-slate-900 dark:text-white uppercase font-heading">
                     Manajemen & Layanan UKS
                   </h3>
-                  
-                  <div className="grid gap-4">
-                    {tasks.map((task, index) => (
-                      <div 
-                        key={index} 
-                        className="group flex items-center gap-5 p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-transparent hover:border-red-200 dark:hover:border-red-900 hover:shadow-lg hover:shadow-red-500/5 transition-all duration-300"
-                      >
-                        <div className="w-12 h-12 rounded-xl bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center group-hover:bg-red-50 dark:group-hover:bg-red-950/30 transition-colors">
-                          {task.icon}
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-red-500 mb-1">
-                            {task.category}
-                          </span>
-                          <p className="text-zinc-700 dark:text-zinc-300 font-medium text-lg">
-                            {task.text}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                </div>
 
-                  {/* Footer Note */}
-                  <div className="mt-8 flex items-center justify-center gap-2 text-muted-foreground text-sm font-medium py-3 border-t border-dashed border-zinc-200 dark:border-zinc-800">
-                    <Sparkles className="w-4 h-4 text-amber-500" />
-                    <span>Mewujudkan Lingkungan Sekolah yang Sehat</span>
-                  </div>
+                <div className="grid gap-4">
+                  {tasks.map((task, index) => (
+                    <div 
+                      key={index} 
+                      className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 animate-fade-in shadow-sm"
+                    >
+                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                        {task.icon}
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-primary">{task.category}</span>
+                        <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed mt-1">
+                          {task.text}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
             </div>
+
           </div>
         </section>
       </main>

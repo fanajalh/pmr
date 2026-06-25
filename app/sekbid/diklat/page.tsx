@@ -1,114 +1,104 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen, GraduationCap, CheckCircle2, Award } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { GraduationCap, Award, BookOpen, CheckCircle2 } from "lucide-react"
+import { CDN_IMAGES } from "@/lib/cdn-images"
 
 export default function DiklatPage() {
   const tasks = [
-    "Membuat materi PMR dan menyampaikannya kepada anggota PMR",
-    "Mengkoordinasikan kegiatan/forum",
-    "Mengadakan simulasi dan latihan anggota PMR dalam menangani korban",
+    "Membuat materi kepalangmerahan dan menyampaikannya secara interaktif kepada anggota.",
+    "Mengkoordinasikan kegiatan latihan, simulasi lapangan, dan forum diskusi.",
+    "Mengadakan simulasi ketangkasan penanganan korban kecelakaan atau bencana.",
   ]
 
   return (
-    <div className="min-h-screen bg-[#fafafa] dark:bg-zinc-950">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-blue-100">
       <Navigation />
       
-      <main className="relative overflow-hidden">
-        {/* Dekoratif Background Aksent */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-primary/5 to-transparent -z-10" />
-        <div className="absolute top-[10%] right-[-5%] w-[300px] h-[300px] bg-primary/10 rounded-full blur-[100px] -z-10" />
-        <div className="absolute bottom-[20%] left-[-5%] w-[250px] h-[250px] bg-accent/10 rounded-full blur-[80px] -z-10" />
+      <main>
+        {/* ================= HERO SECTION ================= */}
+        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-slate-100/30 dark:bg-slate-950/20 pt-20">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0 select-none">
+            <Image
+              src={CDN_IMAGES.diklat}
+              alt="Pendidikan dan Latihan"
+              fill
+              priority
+              className="object-cover opacity-60 dark:opacity-50 scale-100"
+            />
+            {/* Multi-layered Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background" />
+          </div>
 
-        {/* Hero Section */}
-        <section className="pt-24 pb-16">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col items-center text-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6 border border-primary/20">
-                <GraduationCap className="w-3 h-3" />
-                <span>Internal Department</span>
-              </div>
-              
-              <div className="relative group mb-8">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white dark:border-zinc-900 shadow-2xl">
-                  <Image 
-                    src="/images/diklat.jpeg" 
-                    alt="Logo DIKLAT" 
-                    fill 
-                    className="object-cover scale-110 group-hover:scale-100 transition-transform duration-500" 
-                  />
-                </div>
-              </div>
-
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-b from-zinc-900 to-zinc-500 dark:from-white dark:to-zinc-500">
-                Sekbid DIKLAT
-              </h1>
-              <p className="text-xl md:text-2xl font-light text-muted-foreground tracking-wide italic">
-                Pendidikan dan Latihan
-              </p>
+          <div className="relative z-20 container mx-auto px-6 text-center max-w-4xl space-y-6">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100/80 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.05] text-slate-800 dark:text-slate-300 text-xs font-medium tracking-wide mb-4">
+              <GraduationCap className="w-3.5 h-3.5 text-primary" />
+              Internal Department
             </div>
+
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter text-slate-900 dark:text-white leading-none font-heading uppercase">
+              Sekbid <span className="font-semibold text-primary">DIKLAT</span>
+            </h1>
+
+            <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+              Pendidikan dan Latihan. Wadah utama pengembangan kompetensi teknis medis, pengetahuan dasar, dan mental relawan.
+            </p>
           </div>
         </section>
 
-        {/* Content Section */}
-        <section className="pb-24">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+        {/* ================= CONTENT SECTION ================= */}
+        <section className="py-32">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+            
+            {/* Split Info */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
               
-              {/* Card Tentang - 5 Kolom */}
-              <div className="md:col-span-5">
-                <Card className="h-full border-none bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl shadow-sm hover:shadow-md transition-shadow">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
-                        <Award className="text-primary w-6 h-6" />
-                    </div>
-                    <CardTitle className="text-2xl font-bold tracking-tight">
-                        Tentang Sekbid DIKLAT
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed text-lg">
-                      SEKBID DIKLAT (Seksi Bidang Pendidikan dan Latihan) adalah sebagai wadah untuk mengembangkan
-                      keterampilan dan pengetahuan anggota PMR dalam bidang kemanusiaan dan kesehatan.
-                    </p>
-                  </CardContent>
-                </Card>
+              {/* Left Column: Tentang */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="h-[1px] w-10 bg-primary" />
+                  <span className="text-[10px] font-bold tracking-[0.4em] text-primary uppercase">Education</span>
+                </div>
+                
+                <h2 className="text-4xl font-light tracking-tighter text-slate-900 dark:text-white leading-tight font-heading uppercase">
+                  Mengembangkan Kompetensi Relawan
+                </h2>
+                
+                <p className="text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                  SEKBID DIKLAT (Seksi Bidang Pendidikan dan Latihan) bertanggung jawab penuh atas kurikulum pembelajaran, pelatihan fisik, koordinasi materi kepalangmerahan, dan simulasi penanganan pertama guna membentuk kesiapan operasional setiap anggota PMR Wira SMKN 1 Purwokerto.
+                </p>
               </div>
 
-              {/* Card Tugas - 7 Kolom */}
-              <div className="md:col-span-7">
-                <Card className="h-full border-none bg-primary/[0.02] dark:bg-primary/[0.02] border border-primary/10 backdrop-blur-xl shadow-xl shadow-primary/5">
-                  <CardHeader className="pb-4">
-                    <CardTitle className="text-2xl font-bold flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-primary text-primary-foreground">
-                        <BookOpen className="h-5 w-5" />
+              {/* Right Column: Tugas Grid */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex items-center gap-3 mb-8">
+                  <BookOpen className="text-primary w-6 h-6" />
+                  <h3 className="text-2xl font-light tracking-tighter text-slate-900 dark:text-white uppercase font-heading">
+                    Tugas & Tanggung Jawab
+                  </h3>
+                </div>
+
+                <div className="grid gap-4">
+                  {tasks.map((task, index) => (
+                    <div 
+                      key={index} 
+                      className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 shadow-sm"
+                    >
+                      <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 shrink-0">
+                        <CheckCircle2 className="h-4 w-4 text-primary" />
                       </div>
-                      Tugas Sekbid DIKLAT
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid gap-4">
-                      {tasks.map((task, index) => (
-                        <div 
-                          key={index} 
-                          className="group flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-primary/30 transition-all"
-                        >
-                          <div className="mt-1">
-                            <CheckCircle2 className="w-5 h-5 text-primary opacity-60 group-hover:opacity-100 transition-opacity" />
-                          </div>
-                          <p className="text-zinc-700 dark:text-zinc-300 font-medium leading-snug">
-                            {task}
-                          </p>
-                        </div>
-                      ))}
+                      <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        {task}
+                      </p>
                     </div>
-                  </CardContent>
-                </Card>
+                  ))}
+                </div>
               </div>
 
             </div>
+
           </div>
         </section>
       </main>

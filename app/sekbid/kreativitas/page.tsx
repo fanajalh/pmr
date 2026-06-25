@@ -1,129 +1,118 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Lightbulb, Palette, Camera, Sparkles, PenTool } from "lucide-react"
+import { Palette, Camera, Sparkles, PenTool } from "lucide-react"
+import { CDN_IMAGES } from "@/lib/cdn-images"
 
 export default function KreativitasPage() {
   const tasks = [
     {
       title: "Desain Grafis",
-      desc: "Merancang dan membuat poster hari besar",
-      icon: <Palette className="w-6 h-6 text-pink-500" />,
+      desc: "Merancang poster edukasi hari besar dan publikasi visual PMR.",
+      icon: <Palette className="w-5 h-5 text-primary" />,
     },
     {
       title: "Content Creation",
-      desc: "Mengelola konten yang menarik dan informatif mengenai PMR",
-      icon: <Sparkles className="w-6 h-6 text-amber-500" />,
+      desc: "Mengonsep materi konten edukasi kesehatan yang menarik dan informatif.",
+      icon: <Sparkles className="w-5 h-5 text-primary" />,
     },
     {
       title: "Dokumentasi",
-      desc: "Mendokumentasikan semua kegiatan di PMR",
-      icon: <Camera className="w-6 h-6 text-violet-500" />,
+      desc: "Mendokumentasikan seluruh kegiatan internal & eksternal PMR secara berkala.",
+      icon: <Camera className="w-5 h-5 text-primary" />,
     },
   ]
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-blue-100">
       <Navigation />
       
       <main>
-        {/* Hero Section dengan Nuansa Artistik */}
-        <section className="relative pt-24 pb-16 overflow-hidden">
-          {/* Dekorasi Background - Abstrak/Artistik */}
-          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-pink-100/50 dark:bg-pink-900/10 rounded-full blur-[120px] -z-10" />
-          <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[400px] h-[400px] bg-violet-100/50 dark:bg-violet-900/10 rounded-full blur-[100px] -z-10" />
+        {/* ================= HERO SECTION ================= */}
+        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-slate-100/30 dark:bg-slate-950/20 pt-20">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0 select-none">
+            <Image
+              src={CDN_IMAGES.kreativitas}
+              alt="Bidang Kreativitas"
+              fill
+              priority
+              className="object-cover opacity-60 dark:opacity-50 scale-100"
+            />
+            {/* Multi-layered Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background" />
+          </div>
 
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="relative w-40 h-40 mx-auto mb-8 group">
-                {/* Efek Bingkai Kreatif */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-pink-500 via-primary to-violet-500 rounded-[2rem] rotate-6 group-hover:rotate-12 transition-transform duration-500 opacity-20" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-pink-500 via-primary to-violet-500 rounded-[2rem] -rotate-3 group-hover:-rotate-6 transition-transform duration-500 opacity-20" />
-                
-                <div className="relative w-full h-full bg-white dark:bg-zinc-900 rounded-[2rem] p-1 overflow-hidden shadow-xl">
-                  <Image
-                    src="/images/kreativitas.jpeg"
-                    alt="Logo KREATIVITAS"
-                    fill
-                    className="object-cover rounded-[1.8rem]"
-                  />
-                </div>
-              </div>
-              
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-sm font-medium mb-6">
-                <PenTool className="w-4 h-4" />
-                Creative & Media Department
-              </div>
-
-              <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight italic">
-                Sekbid <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-primary to-violet-600">KREATIVITAS</span>
-              </h1>
-              <p className="text-2xl text-muted-foreground font-light tracking-widest uppercase">
-                Bidang Kreativitas
-              </p>
+          <div className="relative z-20 container mx-auto px-6 text-center max-w-4xl space-y-6">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100/80 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.05] text-slate-800 dark:text-slate-300 text-xs font-medium tracking-wide mb-4">
+              <PenTool className="w-3.5 h-3.5 text-primary" />
+              Creative & Media Department
             </div>
+
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter text-slate-900 dark:text-white leading-none font-heading uppercase">
+              Sekbid <span className="font-semibold text-primary">Kreativitas</span>
+            </h1>
+
+            <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+              Bidang Kreativitas. Wadah ekspresi visual, pengelolaan media, dan inovasi publikasi kreatif PMR Wira SMKN 1 Purwokerto.
+            </p>
           </div>
         </section>
 
-        {/* Content Section */}
-        <section className="py-20 bg-zinc-50/50 dark:bg-zinc-900/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        {/* ================= CONTENT SECTION ================= */}
+        <section className="py-32">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+            
+            {/* Split Info */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+              
+              {/* Left Column: Tentang */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="h-[1px] w-10 bg-primary" />
+                  <span className="text-[10px] font-bold tracking-[0.4em] text-primary uppercase">Philosophy</span>
+                </div>
                 
-                {/* Kolom Kiri: Tentang */}
-                <div className="lg:col-span-5">
-                  <div className="sticky top-24">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-1 bg-primary rounded-full" />
-                      <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-primary">Philosophy</h2>
-                    </div>
-                    <h3 className="text-4xl font-bold mb-6 leading-tight text-zinc-900 dark:text-zinc-50">
-                      Wadah Ekspresi & Inovasi Visual
-                    </h3>
-                    <p className="text-xl text-muted-foreground leading-relaxed">
-                      SEKBID KREATIVITAS adalah sebagai wadah untuk mengembangkan dan mengelola berbagai kegiatan kreatif
-                      yang ada di PMR.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Kolom Kanan: Tugas (Grid Cards) */}
-                <div className="lg:col-span-7">
-                  <div className="grid gap-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Lightbulb className="w-5 h-5 text-primary" />
-                      <h4 className="font-bold text-lg uppercase tracking-wider">Tugas Utama</h4>
-                    </div>
-                    
-                    {tasks.map((task, index) => (
-                      <Card key={index} className="group overflow-hidden border-none shadow-sm hover:shadow-xl transition-all duration-300 bg-white dark:bg-zinc-900">
-                        <CardContent className="p-0">
-                          <div className="flex items-stretch">
-                            <div className="w-2 bg-gradient-to-b from-pink-500 to-violet-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="p-6 flex items-start gap-6">
-                              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                {task.icon}
-                              </div>
-                              <div className="space-y-1">
-                                <h5 className="font-bold text-xl text-zinc-900 dark:text-zinc-100">
-                                  {task.title}
-                                </h5>
-                                <p className="text-muted-foreground text-lg leading-snug">
-                                  {task.desc}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-
+                <h2 className="text-4xl font-light tracking-tighter text-slate-900 dark:text-white leading-tight font-heading uppercase">
+                  Ekspresi & Inovasi Visual
+                </h2>
+                
+                <p className="text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                  SEKBID KREATIVITAS berperan sebagai sayap visual organisasi. Kami memproduksi desain media sosial, mengabadikan setiap momen aksi kemanusiaan lewat dokumentasi profesional, serta mengemas edukasi kesehatan agar mudah dicerna secara kreatif.
+                </p>
               </div>
+
+              {/* Right Column: Tugas Grid */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex items-center gap-3 mb-8">
+                  <Sparkles className="text-primary w-6 h-6" />
+                  <h3 className="text-2xl font-light tracking-tighter text-slate-900 dark:text-white uppercase font-heading">
+                    Tugas & Tanggung Jawab
+                  </h3>
+                </div>
+
+                <div className="grid gap-4">
+                  {tasks.map((task, index) => (
+                    <div 
+                      key={index} 
+                      className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 animate-fade-in shadow-sm"
+                    >
+                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                        {task.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg text-slate-900 dark:text-white font-heading">{task.title}</h4>
+                        <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light mt-1">
+                          {task.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
+
           </div>
         </section>
       </main>

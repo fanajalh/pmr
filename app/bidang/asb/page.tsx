@@ -1,155 +1,127 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { AlertTriangle, HeartPulse, LifeBuoy, ShieldAlert, Map, Zap } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { ShieldAlert, Map, LifeBuoy, Zap } from "lucide-react"
+import { CDN_IMAGES } from "@/lib/cdn-images"
 
 export default function ASBPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#fafafa] dark:bg-zinc-950 text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-blue-100">
       <Navigation />
 
-      <main className="flex-grow">
-        {/* ================= HERO SECTION (IMERSIVE) ================= */}
-        <section className="relative h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
-          {/* Background Image dengan Zoom Effect */}
-          <div className="absolute inset-0 z-0">
+      <main>
+        {/* ================= HERO SECTION ================= */}
+        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-slate-100/30 dark:bg-slate-950/20 pt-20">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0 select-none">
             <Image
-              src="/images/background.jpg"
+              src={CDN_IMAGES.asb}
               alt="Tim PMR dalam simulasi bencana"
               fill
               priority
-              className="object-cover object-center scale-110 animate-[ken-burns_20s_ease_infinite]"
+              className="object-cover opacity-60 dark:opacity-50 scale-100"
             />
             {/* Multi-layered Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-zinc-950" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background" />
           </div>
 
-          <div className="relative z-20 container mx-auto px-4 text-center text-white max-w-5xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/20 border border-red-500/30 backdrop-blur-md text-red-400 text-xs font-bold uppercase tracking-[0.2em] mb-8 animate-fade-in">
-              <ShieldAlert className="w-4 h-4" />
+          <div className="relative z-20 container mx-auto px-6 text-center max-w-4xl space-y-6">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100/80 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/[0.05] text-slate-800 dark:text-slate-300 text-xs font-medium tracking-wide mb-4">
+              <ShieldAlert className="w-3.5 h-3.5 text-primary" />
               Emergency Preparedness
             </div>
 
-            <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tighter drop-shadow-2xl leading-[1.1]">
-              Ayo Siaga <span className="text-red-500">Bencana</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter text-slate-900 dark:text-white leading-none font-heading uppercase">
+              Ayo Siaga <span className="font-semibold text-primary">Bencana</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-zinc-300 font-light max-w-2xl mx-auto leading-relaxed">
-              Kesiapsiagaan dan Mitigasi Risiko untuk Komunitas <span className="text-white font-medium italic">PMR Wira</span>
+            <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+              Membentuk relawan kemanusiaan yang tanggap, cakap, dan siaga menghadapi risiko bencana di lingkungan sekolah.
             </p>
-          </div>
-          
-          {/* Decorative Bottom Wave */}
-          <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-            <svg className="relative block w-full h-[50px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
-              <path d="M1200 120L0 120L0 0L1200 120Z" className="fill-zinc-50 dark:fill-zinc-950"></path>
-            </svg>
           </div>
         </section>
 
         {/* ================= CONTENT SECTION ================= */}
-        <section className="relative py-24">
-          {/* Background Decorative Element */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(239,68,68,0.03)_0%,transparent_100%)] -z-10" />
-
-          <div className="container mx-auto px-4 max-w-6xl">
+        <section className="py-32">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             
-            {/* ABOUT SECTION (ASIMETRIS) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-red-500/10 rounded-[2rem] rotate-3 group-hover:rotate-0 transition-transform duration-500" />
-                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-white dark:border-zinc-800">
+            {/* Split Info */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-32">
+              
+              {/* Left Column: Text & Image */}
+              <div className="lg:col-span-7 space-y-12">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="h-[1px] w-10 bg-primary" />
+                    <span className="text-[10px] font-bold tracking-[0.4em] text-primary uppercase">About ASB</span>
+                  </div>
+                  <h2 className="text-4xl font-light tracking-tighter text-slate-900 dark:text-white leading-tight font-heading uppercase">
+                    Membangun Ketangguhan <br/>Sejak Dini
+                  </h2>
+                  <p className="text-base text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    “Ayo Siaga Bencana” adalah program komprehensif PMR Wira untuk melatih kesiapsiagaan dan mengurangi risiko bencana. Kami membekali anggota dengan kesadaran mitigasi, pemetaan risiko mandiri, dan kesiapan mental bertindak cepat saat keadaan darurat terjadi.
+                  </p>
+                </div>
+
+                <div className="relative aspect-video rounded-xl overflow-hidden border border-border/40 dark:border-white/5">
                   <Image
-                    src="/images/background.jpg"
+                    src={CDN_IMAGES.asb}
                     alt="Anggota PMR sedang berlatih"
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover"
                   />
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <div className="w-12 h-1.5 bg-red-600 rounded-full" />
-                <h2 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-                   Membangun Ketangguhan <br/>Sejak Dini
-                </h2>
-                <Card className="border-none bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md shadow-xl shadow-red-500/5">
-                  <CardContent className="pt-6">
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      “Ayo Siaga Bencana PMR” adalah program komprehensif yang membekali anggota Palang Merah Remaja
-                      dengan pengetahuan dan keterampilan menghadapi situasi darurat. Program ini berfokus pada tiga pilar utama:
-                      <span className="block mt-4 flex flex-wrap gap-2">
-                        <span className="px-3 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium text-sm"># Identifikasi Ancaman</span>
-                        <span className="px-3 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium text-sm"># Mitigasi & Pencegahan</span>
-                        <span className="px-3 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium text-sm"># Respon Cepat</span>
-                      </span>
+              {/* Right Column: Pilar Grid */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="space-y-2 mb-8">
+                  <h3 className="text-2xl font-light tracking-tighter text-slate-900 dark:text-white uppercase font-heading">
+                    Pilar Kesiapsiagaan
+                  </h3>
+                  <p className="text-xs text-slate-400">Kerangka kerja standar dalam menghadapi kondisi darurat.</p>
+                </div>
+
+                {/* Card 1 */}
+                <div className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 shadow-sm">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                    <Map className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg text-slate-900 dark:text-white font-heading">Identifikasi Ancaman</h4>
+                    <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light mt-1">
+                      Mengenali potensi bahaya di lingkungan sekitar dan menyusun peta risiko secara akurat.
                     </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-
-            {/* FEATURE GRID (PILLAR) */}
-            <div className="space-y-12">
-              <div className="text-center space-y-2">
-                <h2 className="text-4xl font-black uppercase tracking-tighter text-primary">
-                  Pilar Kesiapsiagaan
-                </h2>
-                <p className="text-muted-foreground">Framework standar dalam menghadapi kondisi darurat</p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-8">
-                {/* CARD 1 */}
-                <div className="group relative">
-                    <div className="absolute inset-0 bg-orange-500 rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-10 transition-opacity" />
-                    <Card className="relative h-full text-center border-none shadow-sm hover:shadow-2xl transition-all duration-500 rounded-[2.5rem] bg-white dark:bg-zinc-900 overflow-hidden">
-                      <div className="absolute top-0 inset-x-0 h-2 bg-orange-500" />
-                      <CardContent className="p-10">
-                        <div className="w-20 h-20 bg-orange-50 dark:bg-orange-950/30 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:rotate-12 transition-transform duration-500">
-                          <Map className="h-10 w-10 text-orange-600" />
-                        </div>
-                        <h3 className="font-bold text-2xl mb-4">Identifikasi Ancaman</h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          Mengenali potensi bahaya dan menyusun peta risiko lingkungan sekolah secara akurat.
-                        </p>
-                      </CardContent>
-                    </Card>
+                  </div>
                 </div>
 
-                {/* CARD 2 */}
-                <div className="group relative">
-                    <div className="absolute inset-0 bg-blue-500 rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-10 transition-opacity" />
-                    <Card className="relative h-full text-center border-none shadow-sm hover:shadow-2xl transition-all duration-500 rounded-[2.5rem] bg-white dark:bg-zinc-900 overflow-hidden">
-                      <div className="absolute top-0 inset-x-0 h-2 bg-blue-500" />
-                      <CardContent className="p-10">
-                        <div className="w-20 h-20 bg-blue-50 dark:bg-blue-950/30 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:rotate-12 transition-transform duration-500">
-                          <LifeBuoy className="h-10 w-10 text-blue-600" />
-                        </div>
-                        <h3 className="font-bold text-2xl mb-4">Mitigasi & Pencegahan</h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          Langkah strategis untuk mengurangi dampak bencana dan meningkatkan ketahanan lingkungan.
-                        </p>
-                      </CardContent>
-                    </Card>
+                {/* Card 2 */}
+                <div className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 shadow-sm">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                    <LifeBuoy className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg text-slate-900 dark:text-white font-heading">Mitigasi & Pencegahan</h4>
+                    <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light mt-1">
+                      Langkah taktis meminimalkan dampak bencana serta meningkatkan ketahanan mandiri komunitas sekolah.
+                    </p>
+                  </div>
                 </div>
 
-                {/* CARD 3 */}
-                <div className="group relative">
-                    <div className="absolute inset-0 bg-red-500 rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-10 transition-opacity" />
-                    <Card className="relative h-full text-center border-none shadow-sm hover:shadow-2xl transition-all duration-500 rounded-[2.5rem] bg-white dark:bg-zinc-900 overflow-hidden">
-                      <div className="absolute top-0 inset-x-0 h-2 bg-red-500" />
-                      <CardContent className="p-10">
-                        <div className="w-20 h-20 bg-red-50 dark:bg-red-950/30 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:rotate-12 transition-transform duration-500">
-                          <Zap className="h-10 w-10 text-red-600" />
-                        </div>
-                        <h3 className="font-bold text-2xl mb-4">Respon Cepat (P3K)</h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          Penanganan awal yang cepat dan efektif dalam situasi darurat untuk menyelamatkan nyawa.
-                        </p>
-                      </CardContent>
-                    </Card>
+                {/* Card 3 */}
+                <div className="p-6 bg-card dark:bg-white/[0.01] border border-border/40 dark:border-white/5 rounded-xl flex gap-5 hover:bg-slate-50 dark:hover:bg-white/[0.02] transition-colors duration-300 shadow-sm">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shrink-0">
+                    <Zap className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg text-slate-900 dark:text-white font-heading">Respon Cepat</h4>
+                    <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light mt-1">
+                      Penanganan awal yang taktis, tenang, dan efektif saat kondisi darurat untuk menyelamatkan jiwa.
+                    </p>
+                  </div>
                 </div>
+
               </div>
             </div>
 

@@ -5,9 +5,9 @@
 
 :root {
   /* Updated color palette to blue theme as requested */
-  --background: #ffffff;
+  --background: #f5f7fa;
   --foreground: #1e293b;
-  --card: #f8fafc;
+  --card: #ffffff;
   --card-foreground: #1e293b;
   --popover: #ffffff;
   --popover-foreground: #1e293b;
@@ -32,7 +32,7 @@
   --chart-4: #1e293b;
   --chart-5: #ef4444;
   --radius: 0.5rem;
-  --sidebar: #f8fafc;
+  --sidebar: #f5f7fa;
   --sidebar-foreground: #1e293b;
   --sidebar-primary: #0ea5e9;
   --sidebar-primary-foreground: #ffffff;
@@ -79,9 +79,9 @@
 }
 
 @theme inline {
-  /* Updated font configuration for modern typography with Playfair Display and Source Sans Pro */
-  --font-sans: "Source Sans Pro", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Playfair Display", ui-serif, Georgia, serif;
+  /* Updated font configuration for modern typography with Poppins only */
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --color-background: var(--background);
