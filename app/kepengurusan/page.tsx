@@ -125,6 +125,8 @@ export default function KepengurusanPage() {
                         src={section.groupImage}
                         alt={`Foto Bersama ${section.role}`}
                         fill
+                        sizes="(max-width: 1024px) 100vw, 58vw"
+                        loading="lazy"
                         className="object-cover transition-transform duration-[750ms] ease-out group-hover:scale-[1.03]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90" />
@@ -201,8 +203,8 @@ export default function KepengurusanPage() {
             onClick={() => setSelectedImage(null)}
           >
             <div className="relative max-w-lg w-full aspect-[4/5] shadow-2xl overflow-hidden rounded-xl border border-white/10">
-              <Image src={selectedImage} alt="Preview" fill className="object-cover" />
-              <button className="absolute top-5 right-5 text-white w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all">
+              <Image src={selectedImage} alt="Preview" fill sizes="(max-width: 768px) 100vw, 32rem" className="object-cover" />
+              <button className="absolute top-5 right-5 text-white w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all" aria-label="Tutup preview gambar">
                 <X className="w-4 h-4" />
               </button>
             </div>

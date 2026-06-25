@@ -12,7 +12,7 @@ export function SekbidSection() {
     { name: "HUMAS", image: "/images/humas.jpeg", href: "/sekbid/humas", description: "Hubungan Masyarakat" },
     { name: "KREATIVITAS", image: "/images/kreativitas.jpeg", href: "/sekbid/kreativitas", description: "Bidang Kreativitas" },
     { name: "PERKAP", image: "/images/perkap.jpeg", href: "/sekbid/perkap", description: "Perlengkapan" },
-    { name: "SEDAN", image: "/saf-c-usaha-dana-logo.png", href: "/sekbid/sedan", description: "SAF - C usaha dana" },
+    { name: "SEDAN", image: CDN_IMAGES.sedan, href: "/sekbid/sedan", description: "SAF - C usaha dana" },
   ]
 
   const marqueeItems = [...sekbidItems, ...sekbidItems]
@@ -41,6 +41,8 @@ export function SekbidSection() {
                         src={item.image}
                         alt={item.name}
                         fill
+                        sizes="80px"
+                        loading="lazy"
                         className="object-cover rounded-full border border-border/40"
                       />
                     </div>

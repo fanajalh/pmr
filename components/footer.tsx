@@ -19,6 +19,8 @@ export function Footer() {
                   src={CDN_IMAGES.logo} 
                   alt="PMR WIRA Logo" 
                   fill 
+                  sizes="48px"
+                  loading="lazy"
                   className="object-cover" 
                 />
               </div>
@@ -26,7 +28,7 @@ export function Footer() {
                 <h3 className="text-lg font-bold tracking-[0.2em] uppercase text-white">
                   PMR WIRA
                 </h3>
-                <p className="text-white/40 text-[10px] tracking-widest uppercase">SMKN 1 Purwokerto</p>
+                <p className="text-white/60 text-[10px] tracking-widest uppercase">SMKN 1 Purwokerto</p>
               </div>
             </div>
             

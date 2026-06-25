@@ -166,6 +166,8 @@ export default function ProgramKerjaPage() {
                               src={image}
                               alt={program.title}
                               fill
+                              sizes="(max-width: 1024px) 50vw, 25vw"
+                              loading="lazy"
                               className="object-cover transition-transform duration-750 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -195,6 +197,7 @@ export default function ProgramKerjaPage() {
             <button 
               onClick={() => setSelectedProgram(null)}
               className="absolute top-6 right-6 z-10 w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all text-white"
+              aria-label="Tutup detail program"
             >
               <X className="w-5 h-5" />
             </button>
@@ -208,6 +211,7 @@ export default function ProgramKerjaPage() {
                     src={selectedProgram.images[0]} 
                     alt={selectedProgram.title} 
                     fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />

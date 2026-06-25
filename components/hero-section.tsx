@@ -17,7 +17,7 @@ export function HeroSection() {
           fill
           className="object-cover opacity-30 lg:opacity-20 dark:opacity-40 lg:dark:opacity-100"
           priority
-          sizes="(max-w-1024px) 100vw, 55vw"
+          sizes="(max-width: 1024px) 100vw, 55vw"
         />
         {/* Desktop Left fade */}
         <div className="hidden lg:block absolute inset-y-0 left-0 w-[50%] bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent dark:from-[#0c1a30] dark:via-[#0c1a30]/80 dark:to-transparent z-10" />
@@ -42,7 +42,7 @@ export function HeroSection() {
               <br />
               <span className="text-slate-500 dark:text-white/60">WIRA</span>
             </h1>
-            <p className="text-sm md:text-base text-slate-500 dark:text-white/40 font-light max-w-xs leading-relaxed">
+            <p className="text-sm md:text-base text-slate-600 dark:text-white/60 font-light max-w-xs leading-relaxed">
               Palang Merah Remaja SMKN 1 Purwokerto
             </p>
 
@@ -67,7 +67,7 @@ export function HeroSection() {
         <div className="absolute bottom-[20%] right-6 lg:bottom-[18%] lg:right-[10%] z-30 block">
           <div className="bg-white/70 dark:bg-white/[0.06] backdrop-blur-md border border-slate-200 dark:border-white/[0.08] rounded-2xl p-4 w-[170px] sm:w-[190px]">
             <p className="text-[10px] font-semibold text-slate-800 dark:text-white/80 leading-snug">Kami membentuk nilai,</p>
-            <p className="text-[10px] text-slate-500 dark:text-white/40 leading-snug">bukan sekadar organisasi.</p>
+            <p className="text-[10px] text-slate-600 dark:text-white/60 leading-snug">bukan sekadar organisasi.</p>
           </div>
         </div>
 

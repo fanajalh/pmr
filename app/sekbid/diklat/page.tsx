@@ -26,6 +26,7 @@ export default function DiklatPage() {
               alt="Pendidikan dan Latihan"
               fill
               priority
+              sizes="100vw"
               className="object-cover opacity-60 dark:opacity-50 scale-100"
             />
             {/* Multi-layered Overlay */}

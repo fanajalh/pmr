@@ -94,13 +94,14 @@ export function Navigation() {
                   src={CDN_IMAGES.logo}
                   alt="PMR WIRA Logo"
                   fill
+                  sizes="36px"
                   className="object-cover"
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <h1 className="text-xs font-black tracking-[0.2em] text-slate-800 dark:text-white uppercase group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">
+                <span className="text-xs font-black tracking-[0.2em] text-slate-800 dark:text-white uppercase group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">
                   PMR WIRA
-                </h1>
+                </span>
                 <p className="text-[9px] font-medium tracking-[0.15em] text-slate-500 dark:text-white/60 uppercase mt-0.5">
                   SMKN 1 Purwokerto
                 </p>
@@ -180,6 +181,7 @@ export function Navigation() {
                 size="sm" 
                 onClick={() => setIsOpen(true)}
                 className="w-9 h-9 rounded-full p-0 flex items-center justify-center bg-slate-800 text-white dark:bg-white dark:text-slate-900 hover:opacity-80 transition-all shadow-md"
+                aria-label="Buka menu navigasi"
               >
                 <Menu className="h-4 w-4" />
               </Button>
@@ -196,10 +198,10 @@ export function Navigation() {
             <div className="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-white/10">
               <Link href="/" className="flex items-center space-x-3" onClick={() => setIsOpen(false)}>
                 <div className="relative w-9 h-9 overflow-hidden rounded-full border border-slate-200 dark:border-white/20">
-                  <Image src={CDN_IMAGES.logo} alt="PMR WIRA Logo" fill className="object-cover" />
+                  <Image src={CDN_IMAGES.logo} alt="PMR WIRA Logo" fill sizes="36px" className="object-cover" />
                 </div>
                 <div>
-                  <h1 className="text-xs font-black tracking-[0.2em] text-slate-800 dark:text-white uppercase">PMR WIRA</h1>
+                  <span className="text-xs font-black tracking-[0.2em] text-slate-800 dark:text-white uppercase">PMR WIRA</span>
                   <p className="text-[9px] font-medium tracking-[0.15em] text-slate-500 dark:text-white/60 uppercase mt-0.5">SMKN 1 Purwokerto</p>
                 </div>
               </Link>
@@ -209,6 +211,7 @@ export function Navigation() {
                 size="sm"
                 onClick={() => setIsOpen(false)}
                 className="w-10 h-10 rounded-full p-0 flex items-center justify-center bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-white/80 hover:rotate-90 transition-transform duration-300"
+                aria-label="Tutup menu navigasi"
               >
                 <X className="h-5 w-5" />
               </Button>

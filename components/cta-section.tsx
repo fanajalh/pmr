@@ -61,14 +61,14 @@ export function CallToActionSection() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold tracking-tight text-white font-heading">@pmrwirasmecone_</h4>
-                  <p className="text-xs text-slate-400 font-light mt-1">Official Instagram account of PMR Wira SMKN 1 Purwokerto.</p>
+                  <p className="text-xs text-slate-300 font-light mt-1">Official Instagram account of PMR Wira SMKN 1 Purwokerto.</p>
                 </div>
               </div>
 
               <div className="space-y-4">
                 <div className="w-full h-[1px] bg-white/10" />
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-slate-400 font-light">Join the community</span>
+                  <span className="text-xs text-slate-300 font-light">Join the community</span>
                   <Link 
                     href="https://www.instagram.com/pmrwirasmecone_/" 
                     target="_blank" 

@@ -20,6 +20,7 @@ export default function ASBPage() {
               alt="Tim PMR dalam simulasi bencana"
               fill
               priority
+              sizes="100vw"
               className="object-cover opacity-60 dark:opacity-50 scale-100"
             />
             {/* Multi-layered Overlay */}
@@ -69,6 +70,8 @@ export default function ASBPage() {
                     src={CDN_IMAGES.asb}
                     alt="Anggota PMR sedang berlatih"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    loading="lazy"
                     className="object-cover"
                   />
                 </div>

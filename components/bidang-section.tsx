@@ -44,6 +44,8 @@ export function BidangSection() {
                   src={item.image}
                   alt={item.name}
                   fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-60 dark:opacity-40 group-hover:opacity-80 dark:group-hover:opacity-60"
                 />
                 
