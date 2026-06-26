@@ -77,10 +77,10 @@ export default function ProgramKerjaPage() {
   ]
 
   const stats = [
-    { label: "Program Kerja", value: "5+", icon: Star },
+    { label: "Program Kerja", value: "15+", icon: Star },
     { label: "Anggota Aktif", value: "100+", icon: Users },
-    { label: "Kolaborasi Mitra", value: "3+", icon: Handshake },
-    { label: "Tahun Berdiri", value: "50+", icon: Calendar },
+    { label: "Kolaborasi Mitra", value: "5+", icon: Handshake },
+    { label: "Tahun Berdiri", value: "30+", icon: Calendar },
   ]
 
   return (

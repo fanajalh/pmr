@@ -9,7 +9,7 @@ export function BulletinSection() {
     const podcastTitle = "Lebih dari Sekedar P3K!";
     const podcastChannel = "PMR WIRA SMK N 1 PURWOKERTO";
     const podcastUrl = "https://youtu.be/10W9vLCecDA?si=d7K6ImjbvkGcRsBg";
-    const formUrl = "https://forms.gle/H5FGhYbxy6s1x5hW9";
+    const formUrl = "https://forms.gle/oH9vCgWgYeXhuMfq9";
 
     const containerVariants = {
         hidden: { opacity: 0 },

@@ -112,7 +112,7 @@ export function Footer() {
             <div className="pt-4 mt-6 border-t border-white/5">
               <p className="text-[11px] text-white/40 uppercase tracking-widest font-bold mb-3">Pendaftaran</p>
               <Link
-                href="https://forms.gle/H5FGhYbxy6s1x5hW9"
+                href="https://forms.gle/oH9vCgWgYeXhuMfq9"
                 target="_blank"
                 className="inline-flex justify-center items-center w-full bg-primary hover:bg-primary/90 text-white py-3 px-4 rounded-xl text-xs font-bold tracking-widest uppercase transition-all shadow-md active:scale-95"
               >

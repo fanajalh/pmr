@@ -20,7 +20,7 @@ export default function KepengurusanPage() {
       members: [
         { name: "Putri Syafiyah Nur Alifah", title: "Ketua" },
         { name: "Fahri Nuansa Ramadhan", title: "Wakil Ketua" },
-        { name: "Nayla Nurul Ikhsana", title: "Ketua Koordinasi" },
+        { name: "Nayla Nurul Ikhsana", title: "Ketua Koordinator" },
       ],
     },
     {
@@ -29,8 +29,8 @@ export default function KepengurusanPage() {
       description: "Pusat pengelolaan data administratif, korespondensi surat menyurat, dan tata arsip internal PMR.",
       groupImage: "https://cdn.jsdelivr.net/gh/fabian-pratama/safc40-assets/sekbid/sekretaris.jpeg",
       members: [
-        { name: "Muhammad Aldi Sadikin", title: "Sekretaris I" },
-        { name: "Nadia Anastasia Ramadani", title: "Sekretaris II" },
+        { name: "Nadia Anastasia Ramadani", title: "Sekretaris I" },
+        { name: "Muhammad Aldi Sadikin", title: "Sekretaris II" },
       ],
     },
     {
@@ -39,8 +39,8 @@ export default function KepengurusanPage() {
       description: "Bertanggung jawab atas sirkulasi kas, laporan pertanggungjawaban keuangan, serta transparansi anggaran.",
       groupImage: "https://cdn.jsdelivr.net/gh/fabian-pratama/safc40-assets/sekbid/bendahara.jpeg",
       members: [
-        { name: "Lili Imaniati", title: "Bendahara I" },
-        { name: "Salsabila", title: "Bendahara II" },
+        { name: "Salsabila", title: "Bendahara I" },
+        { name: "Lili Imaniati", title: "Bendahara II" },
       ],
     },
   ]
@@ -70,7 +70,7 @@ export default function KepengurusanPage() {
             </h1>
             
             <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
-              Manajemen inti periode 2024-2025 yang berdedikasi tinggi, berintegritas, dan bersinergi dalam menakhodai kontingen SAF-C WIRA SMKN 1 Purwokerto.
+              Manajemen inti periode 2025-2026 yang berdedikasi tinggi, berintegritas, dan bersinergi dalam menakhodai kontingen SAF-C WIRA SMKN 1 Purwokerto.
             </p>
           </div>
         </section>
